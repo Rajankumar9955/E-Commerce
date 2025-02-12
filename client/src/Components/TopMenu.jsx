@@ -6,7 +6,7 @@ const TopMenu=()=>{
         <div>
         <Navbar className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+        <Navbar.Brand href="#home">E-Commerce</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>

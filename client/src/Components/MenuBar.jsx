@@ -12,7 +12,7 @@ const MenuBar=()=>{
         
         <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        <Navbar.Brand href="#">WEl-Come</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -49,8 +49,7 @@ const MenuBar=()=>{
                    
                    
          <Button style={{marginRight:"10px", marginLeft:"10px"}}><FaUser/></Button>
-         <Button style={{marginRight:"10px", marginLeft:"5px"}}><FaShoppingCart/><sup style={{fontSize:"20px"}}>0</sup></Button>
-
+         <button style={{border:"none",marginRight:"10px"}}  ><FaShoppingCart  style={{fontSize:"24px",height:"50px"}}   /><sup style={{fontSize:"20px"}}>0</sup></button>
 
         </Navbar.Collapse>
       </Container>
