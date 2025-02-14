@@ -7,17 +7,17 @@ const TopBar=()=>{
         <>
        <Navbar className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
+        <Navbar.Brand href="#home">Welcome</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            Signed in as: <a href="#login">Mark Otto</a>
+            <a href="#" style={{fontSize:"20px"}}>Commerce</a>
           </Navbar.Text>
         </Navbar.Collapse>
 
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            Signed in as: <a href="#login">Mark Otto</a>
+            Welcome: <a href="#login">Mark Otto</a>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>
