@@ -4,16 +4,24 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
 
+import { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import {  Dropdown } from "react-bootstrap";
 import InputGroup from 'react-bootstrap/InputGroup';
 
 import imglogo from "../Images/logo.jpg"
+import wish from "../Images/wish.jpg"
 const MenuBar=()=>{
+    const [showDropdown, setShowDropdown] = useState(false);
+
+
+
+
     return(
         <>
          <div id="topmenu">
@@ -53,14 +61,34 @@ const MenuBar=()=>{
             <Button variant="outline-success" style={{marginRight:"20px"}}>Search</Button>
           </Form>
          
-          <button style={{border:"none",marginRight:"10px"}}  >< FaUser style={{fontSize:"24px",height:"50px"}}/></button> 
-          <button style={{border:"none",marginRight:"10px"}}  ><FaShoppingCart  style={{fontSize:"24px",height:"50px"}}   /><sup style={{fontSize:"20px"}}></sup></button>
-             <div style={{height:"50px"}}>
-             <p style={{marginBottom:"-8px",marginTop:"5px",color:"green",fontSize:"18px",marginLeft:"5px"}}>Welcome</p>
+          <Nav className="d-flex gap-3">
+            {/* DROPDOWN */}
+            <Dropdown show={showDropdown} onMouseEnter={() => setShowDropdown(true)} onMouseLeave={() => setShowDropdown(false)}>
+              <Nav.Link className="d-flex align-items-center " onClick={() => setShowDropdown(!showDropdown)}>
+                <FaUser size={28} className="cursor-pointer mt-1 " />
+              </Nav.Link>
+              <Dropdown.Menu>
+                <Dropdown.Item as={Link} to="/userlogin">Login</Dropdown.Item>
+                <Dropdown.Item as={Link} to="/usersignup">Signup</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            </Nav>
 
+
+            <Nav.Link as={Link} to="/cart" className="d-flex align-items-center">
+              <button style={{textDecoration:"none",border:"none", marginRight:"5px",backgroundColor:"white"}}><FaShoppingCart size={30}/><sup style={{fontSize:"20px"}}>0</sup></button>
+            </Nav.Link>
+
+            <Nav.Link as={Link} to="wishlist" className="d-flex align-items-center">
+              <img src={wish} alt="Wishlist" width="30" height="30"  style={{marginRight:"15px"}}/>
+            </Nav.Link>
+
+
+
+             <div style={{height:"50px"}}>
+             <p style={{marginBottom:"8px",marginTop:"5px",color:"green",fontSize:"18px",marginLeft:"5px"}}>Welcome</p>
              <NavDropdown title="" id="navbarScrollingDropdown">
               <NavDropdown.Item ><button id="logout">Log-out</button></NavDropdown.Item>
-              <NavDropdown.Divider />
            </NavDropdown>
             </div>
         </Navbar.Collapse>
