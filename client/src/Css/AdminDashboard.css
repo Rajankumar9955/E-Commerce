@@ -1,17 +1,31 @@
 
 #admin{
-    /* background-color: lightskyblue; */
+    background-color: rgb(227, 243, 252);
     width: 100%;
-    /* height:572px */
+    height:572px
 }
 
 #admindashboard{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     height: auto;
     padding: 15px;
+    margin-top: 25px;
+    background-color: rgb(199, 224, 232);
 }
 #admindashboard ul li{
     margin-top: 15px;
     font-size: 25px;
     list-style-type: none;   
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    /* border: 2px solid black; */
+    width: 240px;
+}
+#admindashboard ul li:hover{
+    background-color: rgb(254, 253, 253);
+    color: white;
+}
+#admindashboard ul li .active{
+ text-decoration: none;
+ color: rgb(106, 112, 126);
 }
