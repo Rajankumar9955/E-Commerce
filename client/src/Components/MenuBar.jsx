@@ -12,13 +12,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import InputGroup from 'react-bootstrap/InputGroup';
 
+import imglogo from "../Images/logo.jpg"
 const MenuBar=()=>{
     return(
         <>
          <div id="topmenu">
         <Navbar expand="lg" className="bg-body-tertiary" style={{}}>
       <Container fluid>
-        <Navbar.Brand href="#" style={{marginLeft:"20px",fontWeight:"bold"}}>//</Navbar.Brand>
+        <Navbar.Brand href="#" style={{marginLeft:"20px",fontWeight:"bold"}}> <img src={imglogo}  height="50" alt="" /> </Navbar.Brand>
         <Navbar.Toggle  aria-controls="navbarScroll"  />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -33,20 +34,19 @@ const MenuBar=()=>{
             <Nav.Link as={Link}to="Blog">Blog</Nav.Link>
             <Nav.Link as={Link}to="sale">Sale</Nav.Link>
             <NavDropdown title="Brands" id="navbarScrollingDropdown">
-              <NavDropdown.Item as={Link} to="eyetech">EyeTech Camera</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="wipro">Wipro Camera</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="ddlc">DDLC Camera</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="daynight">
-                Day and Night camera
-              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="eyetech">Apple</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="wipro">Samsung</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="ddlc">Vivo</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="daynight">Realme</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="daynight">Puma</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="daynight">Bata</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link}to="premiumcamera">
-                Premium Camera's 
+                Premium Product's 
               </NavDropdown.Item>
             </NavDropdown>
             
           </Nav>
-          
          
           <Form className="d-flex">
             <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search"/>
