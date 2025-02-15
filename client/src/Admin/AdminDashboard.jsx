@@ -13,7 +13,7 @@
 //     return(
 //         <>
 // <div id='admin'>
-//     <AdminNavBar/>
+//   
 //       <Row>
 //         <Col md="3">
 //              <div id='admindashboard'>
@@ -92,7 +92,7 @@ const AdminDashboard = () => {
             <div className={`main-content ${menuOpen ? "full" : ""}`}>
                 <header>
                     <FaBars className="menu-toggle" onClick={() => setMenuOpen(true)} />
-                    <h3 className="user-dash"> ADMIN DASHBOARD </h3>
+                    <h3 className="user-dash">DASHBOARD </h3>
                     <div className="user-info">
                         <img src={user} alt="User Icon" className="user-icon" />
                     </div>
