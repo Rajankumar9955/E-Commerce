@@ -61,7 +61,7 @@ import { FaBars, FaTimes, FaHome, FaPlus, FaTable,FaEdit, FaSignOutAlt } from "r
 const AdminDashboard = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     return (
-        <div className="dashboard-container">
+        <div id="dashboard-container">
             {/* Sidebar */}
             <div className={`sidebar ${menuOpen ? "show" : ""}`}>
                 <div className="sidebar-header">
@@ -98,11 +98,11 @@ const AdminDashboard = () => {
                     </div>
                 </header>
 
-                <main>
+                <div>
 
                     <Outlet />
 
-                </main>
+                </div>
             </div>
         </div>
     );
