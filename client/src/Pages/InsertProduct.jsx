@@ -67,7 +67,9 @@ const InsertProduct=()=>{
             ))}
         </Form.Select>
         
-       
+        {/* {Object.keys(categories).map((cat)=>{
+            <option keys={cat} value={cat}>{cat}</option>
+        })} */}
 
 
         <Form.Select size="lg" className="mb-2" value={selectSubCategory} onChange={handleSubCategoryChange}   disabled={!selectCategory}>
