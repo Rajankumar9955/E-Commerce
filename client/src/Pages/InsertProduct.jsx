@@ -62,21 +62,20 @@ const InsertProduct=()=>{
 
         <Form.Select size="lg" className="mb-2" value={selectCategory}  onChange={handleCategoryChange}>
         <option value="">Select Product Category</option>
-         {Object.keys(categories).map((cat) => (
-              <option key={cat} value={cat}>{cat}</option>
-            ))}
+         {Object.keys(categories).map((cat)=>(
+          <option key={cat} value={cat}>{cat}</option>
+         ))}
         </Form.Select>
         
-        {/* {Object.keys(categories).map((cat)=>{
-            <option keys={cat} value={cat}>{cat}</option>
-        })} */}
+        
+       
 
 
         <Form.Select size="lg" className="mb-2" value={selectSubCategory} onChange={handleSubCategoryChange}   disabled={!selectCategory}>
         <option value="">Select Category</option>
-        {subCategories.map((sub)=>{
+        {subCategories.map((sub)=>(
           <option key={sub} value={sub}>{sub}</option>
-        })}
+        ))}
        </Form.Select>
     
 
@@ -108,7 +107,7 @@ const InsertProduct=()=>{
         <Form.Control type="file" multiple placeholder="Upload Images" onChange={handleFileChange} />
       </FloatingLabel>
 
-        <Button variant='success' onClick={handleSubmit}>Now Insert!</Button>
+        <Button variant='success' onClick={handleSubmit} style={{marginBottom:"5px"}}>Now Insert!</Button>
         </Col>
         </div>
       </Row>

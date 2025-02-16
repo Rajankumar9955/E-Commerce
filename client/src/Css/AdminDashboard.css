@@ -43,8 +43,10 @@
 #dashboard-container {
     display: flex;
     height: auto;
+    
     /* background-color: #1e1e2d; */
 }
+
 
 /* Sidebar */
 .sidebar {
@@ -59,7 +61,7 @@
     left: 0;
     top: 0;
     transition: transform 0.3s ease-in-out;
-    z-index: 1;
+    z-index: 4;
 }
 
 /* Sidebar Hidden for Small Screens */
@@ -148,13 +150,15 @@
 
 /* Header */
 header {
-    background-color: #1f2937;
+    background-color: #52709a;
     color: #fff;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #374151;
+    position: sticky;
+    top: 0;
 }
 
 /* Hamburger Menu */
