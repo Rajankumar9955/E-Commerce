@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(cors());
 
-app.use('/admin', ADMINROUTES);
+app.use("/admin", ADMINROUTES);
 
 
 const port=process.env.PORT

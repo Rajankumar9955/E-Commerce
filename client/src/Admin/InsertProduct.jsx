@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import axios from "axios"
-import {message} from "antd"
+
 
 import BASE_URL from "../config"  //this is common api, this api in config folder
 const InsertProduct=()=>{
@@ -39,7 +39,7 @@ const InsertProduct=()=>{
 
      const handleInput=(e)=>{
         const {name,value}=e.target;
-        setInput(values=>({...values, [value]:name}))
+        setInput(values=>({...values, [name]:value}))
         console.log(input)
      }
 
@@ -66,7 +66,7 @@ const InsertProduct=()=>{
           await axios.post(api, formData,{
             headers:{'Content-Type':"multipart/form-data"}
           })
-          message.success("DATA UPLOADED")
+          alert("DATA UPLOADED")
         } catch (error) {
            console.log(error);
         }
@@ -77,9 +77,10 @@ const InsertProduct=()=>{
     return(
         <>
         <h3  style={{ marginLeft:"16%",marginTop:"25px",fontFamily:"cursive", fontWeight:"bold"}}>INSERT PRODUCTS</h3>
-        <div style={{width:"90%",}}>
+        <div style={{width:"90%"}}>
             <div style={{marginLeft:"30px", marginTop:"15px"}}>
-      <Row>
+   
+      <Row >
         <div style={{width:"325px"}}>
         <Col>
 
@@ -90,30 +91,23 @@ const InsertProduct=()=>{
          ))}
         </Form.Select>
         
-        
-       
-
-
         <Form.Select size="lg" className="mb-2" value={selectSubCategory} onChange={handleSubCategoryChange}   disabled={!selectCategory}>
         <option value="">Select Category</option>
         {subCategories.map((sub)=>(
           <option key={sub} value={sub}>{sub}</option>
         ))}
        </Form.Select>
-    
-
 
         <FloatingLabel controlId="floatingInput" label="Enter Product Name"  className="mb-1">
         <Form.Control type="text" placeholder="name@example.com" name='productname' value={input.productname}onChange={handleInput}/>
       </FloatingLabel>
 
       <FloatingLabel controlId="floatingPassword" label="Enter Product Brand"  className="mb-1">
-        <Form.Control type="text" placeholder="Enter Product Brand" name='productbrand' value={input.productbrand} onChange={handleInput} />
+        <Form.Control type="text" placeholder="Enter Product Brand" name='productbrand' value={input.productbrand } onChange={handleInput} />
       </FloatingLabel>
 
         </Col>
         </div>
-
 
        <div style={{width:"325px"}} align="center">
         <Col>
@@ -122,8 +116,9 @@ const InsertProduct=()=>{
         <Form.Control type="number" placeholder="name@example.com" name='productprice' value={input.productprice} onChange={handleInput} />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingPassword" label="Enter Product Description" className="mb-2">
-        <Form.Control type="text" placeholder="Enter Product Description" name='description' value={input.description} onChange={handleInput} />
+
+      <FloatingLabel controlId="floatingTextarea2" label="Product Description" className="mb-1">
+        <Form.Control as="textarea" placeholder="Product Description" style={{ height: '108px' }} name='description' value={input.description} onChange={handleInput}/>
       </FloatingLabel>
 
       <FloatingLabel controlId="floatingPassword" label="Upload Images" className="mb-1">
@@ -134,7 +129,7 @@ const InsertProduct=()=>{
         </Col>
         </div>
       </Row>
- 
+    
     </div>
     </div>
         </>

@@ -2,7 +2,7 @@
 
 const express=require('express');
 const route=express.Router();
-
+const path=require('path')
 const multer=require("multer")
 
 const AdminControllers=require("../Controllers/AdminControllers")
@@ -39,8 +39,7 @@ const storage = multer.diskStorage({
       });
 
 
-  route.post('productInsert', upload.array('files',10),AdminControllers.ProductInsert);
-
+  route.post('/productInsert', upload.array('files',10),AdminControllers.ProductInsert);
 
 
 
