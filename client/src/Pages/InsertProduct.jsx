@@ -72,7 +72,6 @@ const InsertProduct=()=>{
         })} */}
 
 
-
         <Form.Select size="lg" className="mb-2" value={selectSubCategory} onChange={handleSubCategoryChange}   disabled={!selectCategory}>
         <option value="">Select Category</option>
         {subCategories.map((sub)=>{
