@@ -5,7 +5,7 @@ import { BrowserRouter,Routes,Route } from "react-router-dom"
 import Layout from "./Layout"
 import Home from "./Pages/Home"
 import AdminDashboard from "./Admin/AdminDashboard"
-import InsertProduct from "./Pages/InsertProduct"
+import InsertProduct from "./Admin/InsertProduct"
 const App=()=>{
   return(
     <>
