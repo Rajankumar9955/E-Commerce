@@ -95,7 +95,7 @@ const UpdateProduct=()=>{
      }
     return(
         <>
-        <h1 align="center">UpdateProduct</h1>
+        <h3 align="center" style={{marginTop:"15px",marginBottom:"15px"}}>UpdateProduct</h3>
         <Table striped bordered hover>
       <thead>
         <tr>
