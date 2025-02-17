@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 import BASE_URL from "../config";
 import Table from 'react-bootstrap/Table';
 import axios from "axios";
+import { Button } from "react-bootstrap";
 const UpdateProduct=()=>{
     const [mydata,setMydata]=useState([]);
 
@@ -41,12 +42,44 @@ const UpdateProduct=()=>{
             <td>{key.subcategory}</td>
             <td>{key.status}</td>
             <td>{key.rating}</td>
+            <td>
+                {key.status=="normal"?(<>
+                    <Button variant="success" onClick={(e)=>{MakePrimary(e,key._id)}}>Make Primary</Button>
+                </>
+                ):(<>
+                <Button variant="warning" onClick={(e)=>{MakeNormal(e,key._id)}}>Make Normal</Button>
+                </>)}
+            </td>
 
         </tr>
         
         </>
     )
     })
+
+    const MakePrimary=async(e,id)=>{
+       e.preventDefault();
+       const api=`${BASE_URL}/admin/productMakePrimary`;
+       try {
+           const response=await axios.post(api,{id:id})
+           console.log(response.data);
+       } catch (error) {
+        console.log(error)
+       }
+       loadData()
+    }
+    const MakeNormal=async(e,id)=>{
+        e.preventDefault();
+        const api=`${BASE_URL}/admin/productMakeNormal`;
+        try {
+            const response=await axios.post(api,{id:id})
+            console.log(response.data);
+        } catch (error) {
+         console.log(error)
+        }
+        loadData()
+     }
+
     return(
         <>
         <h1 align="center">UpdateProduct</h1>
@@ -62,6 +95,7 @@ const UpdateProduct=()=>{
           <th>Sub Category</th>
           <th>Status</th>
           <th>Rating</th>
+          <th>Make Primary</th>
         </tr>
       </thead>
       <tbody>

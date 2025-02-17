@@ -30,7 +30,28 @@ const ProductsUpdate=async(req,res)=>{
   }
    
 }
+const ProductMakePrimary=async(req,res)=>{
+  const {id}=req.body;
+  try {
+    const primary=await ProductModel.findByIdAndUpdate(id,{status:"primary"});
+    res.status(200).send({msg:"Product Updated to Primary"});
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const ProductMakeNormal=async(req,res)=>{
+  const {id}=req.body;
+  try {
+    const normal=await ProductModel.findByIdAndUpdate(id,{status:"normal"});
+    res.status(200).send({msg:"Product Updated to Normal"});
+  } catch (error) {
+    console.log(error)
+  }
+}
 module.exports={
     ProductInsert,
-    ProductsUpdate
+    ProductsUpdate,
+    ProductMakePrimary,
+    ProductMakeNormal
 }
