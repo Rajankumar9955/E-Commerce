@@ -2,15 +2,17 @@ import { useState, useEffect } from "react";
 import BASE_URL from "../config";
 import "../Css/ProductCard.css";
 import { FaRegHeart, FaStar } from "react-icons/fa";
-import { PiCurrencyInrThin } from "react-icons/pi";
 import axios from "axios";
+import { addtoCart } from "../Redux/cardSlice";
+import {useDispatch} from "react-redux"
 
 
 
 
 const ProductCard=()=>{
+
     const [mydata, setMydata]= useState([]);
- 
+    const dispatch=useDispatch();
    const loadData=async()=>{
     const api=`${BASE_URL}/product/homeproductdisplay`;
     try {
@@ -48,7 +50,7 @@ const ans=mydata.map((key)=>{
                         </div> */}
                        
                         <button className="add-to-cart"
-            
+        onClick={()=>{dispatch(addtoCart({id:key._id, productname:key.productname, productbrand:key.productbrand, productprice:key.productprice, description:key.description,category:key.category, subcategory:key.subcategory, images:key.images, defaultImage:key.defaultImage, ratings:key.ratings, status:key.status, qnty:1}))}}
                         >Add to Cart</button>
                     </div>
                 </div>

@@ -16,10 +16,12 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
 import imglogo from "../Images/logo.jpg"
 import wish from "../Images/wish.jpg"
+import { useSelector } from "react-redux";
 const MenuBar=()=>{
     const [showDropdown, setShowDropdown] = useState(false);
 
-
+    const productData=useSelector(state=>state.mycart.cart);
+    const prolength=productData.length
 
 
     return(
@@ -74,7 +76,7 @@ const MenuBar=()=>{
 
 
             <Nav.Link as={Link} to="/cart" className="d-flex align-items-center">
-              <button style={{textDecoration:"none",border:"none", marginRight:"5px",backgroundColor:"white"}}><FaShoppingCart size={30}/><sup style={{fontSize:"20px"}}>0</sup></button>
+              <button style={{textDecoration:"none",border:"none", marginRight:"5px",backgroundColor:"white"}}><FaShoppingCart size={30}/><sup style={{fontSize:"20px"}}>{prolength}</sup></button>
             </Nav.Link>
 
             <Nav.Link as={Link} to="wishlist" className="d-flex align-items-center">

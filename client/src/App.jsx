@@ -7,6 +7,7 @@ import Home from "./Pages/Home"
 import AdminDashboard from "./Admin/AdminDashboard"
 import InsertProduct from "./Admin/InsertProduct"
 import UpdateProducts from "./Admin/UpdateProducts"
+import Cart from "./Components/Cart"
 const App=()=>{
   return(
     <>
@@ -15,6 +16,7 @@ const App=()=>{
                         <Route path="/" element={<Layout/>}>
                         <Route index element={<Home/>}/>
                         <Route path="home" element={<Home/>}/> 
+                        <Route path="cart" element={<Cart/>}/> 
                         </Route>
 
 
