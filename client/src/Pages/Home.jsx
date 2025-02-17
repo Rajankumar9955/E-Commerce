@@ -3,6 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import img1 from "../Images/mob1.jpg"
 import img2 from "../Images/mob2.jpg"
 import img3 from "../Images/lap1.jpg"
+import ProductCard from './ProductCard';
 const Home=()=>{
     return(
         <>
@@ -34,6 +35,10 @@ const Home=()=>{
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+
+{/* =====product card Here */}
+    <ProductCard/>
+
         </>
     )
 }

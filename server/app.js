@@ -8,6 +8,7 @@ const path=require("path");
 const bodyParser=require("body-parser")
 const cors=require('cors');
 const ADMINROUTES=require("./Routes/AdminRoutes")
+const PRODUCTROUTES=require("./Routes/ProductRoutes")
 const DB=require("./db");
 DB();
 
@@ -20,6 +21,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(cors());
 
 app.use("/admin", ADMINROUTES);
+app.use("/product", PRODUCTROUTES);
 
 
 const port=process.env.PORT

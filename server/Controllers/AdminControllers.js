@@ -4,7 +4,7 @@ const ProductModel=require("../Models/ProductModel")
 
 const ProductInsert=async(req,res)=>{
   const imgurl=req.files.map(file=>file.path);
-  const {category,subcategory, productname, productbrand, productprice,description, images,defaultImage}=req.body;
+  const {category,subcategory, productname, productbrand, productprice,description}=req.body;
   try {
     const Save=await ProductModel.create({
         category:category,
@@ -16,7 +16,7 @@ const ProductInsert=async(req,res)=>{
         images:imgurl,  
         defaultImage:imgurl[0],
     })
-    res.status(200).send("Data Added Successfully")
+    res.status(200).send({msg:"Data Upload SuccessFully"})
   } catch (error) {
     console.log(error)
   }
