@@ -49,9 +49,19 @@ const ProductMakeNormal=async(req,res)=>{
     console.log(error)
   }
 }
+const DeleteProduct=async(req,res)=>{
+  const {id}=req.body;
+  try {
+    const del=await ProductModel.findByIdAndDelete(id);
+    res.status(200).send({msg:"Product Deleted!"});
+  } catch (error) {
+    console.log(error)
+  }
+}
 module.exports={
     ProductInsert,
     ProductsUpdate,
     ProductMakePrimary,
-    ProductMakeNormal
+    ProductMakeNormal,
+    DeleteProduct
 }

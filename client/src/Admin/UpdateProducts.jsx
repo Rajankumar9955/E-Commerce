@@ -50,6 +50,9 @@ const UpdateProduct=()=>{
                 <Button variant="warning" onClick={(e)=>{MakeNormal(e,key._id)}}>Make Normal</Button>
                 </>)}
             </td>
+            <td>
+                <Button variant="danger" onClick={(e)=>{ProductDelete(e,key._id)}}>Delete</Button>
+            </td>
 
         </tr>
         
@@ -79,7 +82,17 @@ const UpdateProduct=()=>{
         }
         loadData()
      }
-
+     const ProductDelete=async(e,id)=>{
+        e.preventDefault();
+        const api=`${BASE_URL}/admin/deleteProduct`;
+        try {
+            const response=await axios.post(api,{id:id});
+            console.log(response.data);
+        } catch (error) {
+            console.log(error)
+        }
+        loadData();
+     }
     return(
         <>
         <h1 align="center">UpdateProduct</h1>
@@ -95,7 +108,8 @@ const UpdateProduct=()=>{
           <th>Sub Category</th>
           <th>Status</th>
           <th>Rating</th>
-          <th>Make Primary</th>
+          <th>Make</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
