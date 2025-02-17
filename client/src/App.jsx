@@ -6,6 +6,7 @@ import Layout from "./Layout"
 import Home from "./Pages/Home"
 import AdminDashboard from "./Admin/AdminDashboard"
 import InsertProduct from "./Admin/InsertProduct"
+import UpdateProducts from "./Admin/UpdateProducts"
 const App=()=>{
   return(
     <>
@@ -19,6 +20,7 @@ const App=()=>{
 
                         <Route path="admindashboard" element={<AdminDashboard/>}>
                           <Route path="insertproduct" element={<InsertProduct/>}/>
+                          <Route path="updateproducts" element={<UpdateProducts/>}/>
                         </Route>
                   </Routes>
     </BrowserRouter>
