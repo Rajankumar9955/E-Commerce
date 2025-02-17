@@ -26,11 +26,16 @@ const UpdateProduct=()=>{
         <>
         <tr>
             <td>
-                <img src={`${BASE_URL}/${key.defaultImage}`} alt="" />
+                <img src={`${BASE_URL}/${key.defaultImage}`} style={{ width: 50, height: 50 }} alt="Images" />
             </td>
             <td>{key.productname}</td>
             <td>{key.productbrand}</td>
-            <td>{key.description}</td>
+            <td>
+                   <details>
+                   <summary>Details</summary>
+                    <p>{key.description}</p>
+                   </details>
+            </td>
             <td>{key.productprice}</td>
             <td>{key.category}</td>
             <td>{key.subcategory}</td>

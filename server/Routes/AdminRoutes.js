@@ -40,6 +40,7 @@ const storage = multer.diskStorage({
 
 
   route.post('/productInsert', upload.array('files',10),AdminControllers.ProductInsert);
+  route.get('/updateproducts', AdminControllers.ProductsUpdate);
 
 
 

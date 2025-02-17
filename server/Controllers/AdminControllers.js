@@ -21,7 +21,16 @@ const ProductInsert=async(req,res)=>{
     console.log(error)
   }
 }
-
+const ProductsUpdate=async(req,res)=>{
+  try {
+    const show=await ProductModel.find();
+    res.status(200).send(show);
+  } catch (error) {
+    console.log(error)
+  }
+   
+}
 module.exports={
-    ProductInsert
+    ProductInsert,
+    ProductsUpdate
 }
