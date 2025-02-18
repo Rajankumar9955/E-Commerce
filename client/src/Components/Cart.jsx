@@ -20,10 +20,16 @@ const Cart=()=>{
     const QuantityDecrease=(id)=>{
        dispatch(qntyDecrease({id:id}));
     }
+
+    let sno=0; 
+    let grandTotal=0;
     const ans=proData.map((key)=>{
+        sno++;
+        grandTotal+=key.productprice*key.qnty;
         return(
             <>
             <tr>
+                <td>{sno}</td>
                 <td>
                     <img src={`${BASE_URL}/${key.defaultImage}`}  style={{ width: 60, height: 60 }} alt="Image" />
                 </td>
@@ -44,7 +50,7 @@ const Cart=()=>{
                     </span>
                 <FaCirclePlus onClick={()=>{QuantityIncrease(key.id)}}  className="plus" style={{cursor:"pointer"}}/>
                 </td>
-                <td>₹ {key.price*key.qnty}</td>
+                <td>₹ {key.productprice*key.qnty}</td>
                 <td>
                     <Button variant="danger">Remove</Button>
                 </td>
@@ -58,7 +64,8 @@ const Cart=()=>{
            <Table striped bordered hover style={{fontSize:"12px"}}>
       <thead>
         <tr>
-          <th>#</th>
+          <th>Sno</th>
+          <th>Image</th>
           <th>Product Name</th>
           <th>Brand</th>
           <th>Description</th>
