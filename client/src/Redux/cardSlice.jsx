@@ -17,8 +17,31 @@ const cartSlice=createSlice({
                     state.cart.push(actions.payload)
                     alert("Product Added Successfully");
                 }
-               }  
+               },
+               qntyIncrease:(state,actions)=>{
+                  for(var i=0; i<state.cart.length; i++)
+                  {
+                    if(state.cart[i].id==actions.payload.id)
+                    {
+                        state.cart[i].qnty++;
+                    }
+                  }
+               } ,
+               qntyDecrease:(state,actions)=>{
+                for(var i=0; i<state.cart.length; i++)
+                {
+                  if(state.cart[i].id==actions.payload.id)
+                  {
+                      if(state.cart[i].qnty<=1){
+                        alert("Quantity Doesn't less then 1");
+                      }
+                      else{
+                            state.cart[i].qnty--;
+                      }
+                  }
+                }
+             } ,
     }
 })
-export const {addtoCart}=cartSlice.actions;
+export const {addtoCart,qntyIncrease,qntyDecrease}=cartSlice.actions;
 export default cartSlice.reducer;

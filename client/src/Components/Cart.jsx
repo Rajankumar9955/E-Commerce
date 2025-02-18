@@ -5,12 +5,21 @@ import { useSelector, useDispatch } from "react-redux";
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
+import { qntyIncrease, qntyDecrease} from "../Redux/cardSlice";
+
 import BASE_URL from "../config";
 
 const Cart=()=>{
     const proData=useSelector(state=>state.mycart.cart);
     const dispatch=useDispatch();
 
+    const QuantityIncrease=(id)=>{
+         dispatch(qntyIncrease({id:id}));
+    }
+  
+    const QuantityDecrease=(id)=>{
+       dispatch(qntyDecrease({id:id}));
+    }
     const ans=proData.map((key)=>{
         return(
             <>
@@ -28,9 +37,12 @@ const Cart=()=>{
                 </td>
                 <td>₹ {key.productprice}</td>
                 <td>
-                <FaMinus />
+               
+               <FaMinus onClick={()=>{QuantityDecrease(key.id)}}  style={{cursor:"pointer"}}/>
+               <span className="minus">
                     {key.qnty}
-                <FaCirclePlus />
+                    </span>
+                <FaCirclePlus onClick={()=>{QuantityIncrease(key.id)}}  className="plus" style={{cursor:"pointer"}}/>
                 </td>
                 <td>₹ {key.price*key.qnty}</td>
                 <td>
