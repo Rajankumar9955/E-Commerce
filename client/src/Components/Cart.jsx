@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
-import { qntyIncrease, qntyDecrease} from "../Redux/cardSlice";
+import { qntyIncrease, qntyDecrease, proDelete} from "../Redux/cardSlice";
 
 import BASE_URL from "../config";
 
@@ -19,6 +19,10 @@ const Cart=()=>{
   
     const QuantityDecrease=(id)=>{
        dispatch(qntyDecrease({id:id}));
+    }
+    
+    const productDelete=(id)=>{
+        dispatch(proDelete({id:id}))
     }
 
     let sno=0; 
@@ -52,7 +56,7 @@ const Cart=()=>{
                 </td>
                 <td>₹ {key.productprice*key.qnty}</td>
                 <td>
-                    <Button variant="danger">Remove</Button>
+                    <Button variant="danger" onClick={()=>{productDelete(key.id)}}>Remove</Button>
                 </td>
             </tr>
             

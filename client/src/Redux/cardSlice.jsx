@@ -41,7 +41,10 @@ const cartSlice=createSlice({
                   }
                 }
              } ,
+             proDelete:(state,actions)=>{
+                state.cart=state.cart.filter(key=>key.id!=actions.payload.id)
+             }
     }
 })
-export const {addtoCart,qntyIncrease,qntyDecrease}=cartSlice.actions;
+export const {addtoCart,qntyIncrease,qntyDecrease,proDelete}=cartSlice.actions;
 export default cartSlice.reducer;
