@@ -18,8 +18,12 @@ const wishlistSlice=createSlice({
                 state.wish.push(actions.payload);
                 alert("Product Added into Wishlist");
             }
+        },
+        prodislike:(state,actions)=>{
+            state.wish=state.wish.filter(key=>key.id!=actions.payload.id)
+            alert("You Dislike the Product")
         }
     }
 })
-export const{addtowishlist}=wishlistSlice.actions;
+export const{addtowishlist,prodislike}=wishlistSlice.actions;
 export default wishlistSlice.reducer

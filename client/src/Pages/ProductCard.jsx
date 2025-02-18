@@ -5,7 +5,7 @@ import { FaRegHeart, FaStar } from "react-icons/fa";
 import axios from "axios";
 import { addtoCart } from "../Redux/cardSlice";
 import {useDispatch} from "react-redux"
-
+import Button from 'react-bootstrap/Button';
 
 import { addtowishlist } from "../Redux/wishlistSlice";
 
@@ -53,10 +53,12 @@ const ans=mydata.map((key)=>{
                                 <FaStar key={index} className="star-icon" />
                             ))}
                         </div> */}
-                       
-                        <button className="add-to-cart"
+                        <div className="add-to-cart">
+                        <Button variant="warning"  className="add-to-cart1">Shop Now</Button>
+                        <Button variant="success" className="add-to-cart11"
         onClick={()=>{dispatch(addtoCart({id:key._id, productname:key.productname, productbrand:key.productbrand, productprice:key.productprice, description:key.description,category:key.category, subcategory:key.subcategory, images:key.images, defaultImage:key.defaultImage, ratings:key.ratings, status:key.status, qnty:1}))}}
-                        >Add to Cart</button>
+                        >Add to Cart</Button>
+                </div>
                     </div>
                 </div>
                 </>

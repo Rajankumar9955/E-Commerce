@@ -4,10 +4,17 @@ import { useSelector, useDispatch } from "react-redux";
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
+import { prodislike } from "../Redux/wishlistSlice";
+
 import BASE_URL from "../config";
 const Wishlist=()=>{
     const wishlistData=useSelector(state=>state.wishlist.wish)
 
+    const dispatch=useDispatch();
+
+    const disLike=(id)=>{
+       dispatch(prodislike({id:id}))
+    }
 
     let sno=0;
     const ans=wishlistData.map((key)=>{
@@ -30,7 +37,7 @@ const Wishlist=()=>{
                 </td>
                 <td>₹ {key.productprice}</td>
                 <td>
-                    <Button variant="danger">Dislike</Button>
+                    <Button variant="danger" onClick={()=>{disLike(key.id)}}>Dislike</Button>
                 </td>
             </tr>
             </>
