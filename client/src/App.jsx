@@ -9,6 +9,7 @@ import InsertProduct from "./Admin/InsertProduct"
 import UpdateProducts from "./Admin/UpdateProducts"
 import Cart from "./Components/Cart"
 import Wishlist from "./Components/Wishlist"
+import Details from "./Pages/Details"
 const App=()=>{
   return(
     <>
@@ -19,6 +20,8 @@ const App=()=>{
                         <Route path="home" element={<Home/>}/> 
                         <Route path="cart" element={<Cart/>}/> 
                         <Route path="wishlist" element={<Wishlist/>}/> 
+                        <Route path="details/:id" element={<Details/>}/> 
+                        
                         </Route>
 
 

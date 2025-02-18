@@ -8,6 +8,7 @@ import {useDispatch} from "react-redux"
 import Button from 'react-bootstrap/Button';
 
 import { addtowishlist } from "../Redux/wishlistSlice";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -31,12 +32,17 @@ useEffect(()=>{
     loadData();
 }, [])
 
+const navigate=useNavigate();
+const detail=(id)=>{
+    navigate(`/details/${id}`);
+}
+
 const ans=mydata.map((key)=>{
             return(
                 <>
               <div className="product-card">
                     <div className="image-container">
-        <img src={`${BASE_URL}/${key.defaultImage}`} alt={key.name} className="product-image" />
+        <img src={`${BASE_URL}/${key.defaultImage}`} alt="photo" className="product-image" onClick={()=>{detail(key._id)}} />
                <FaRegHeart className="wishlist-icon" 
                        onClick={()=>{dispatch(addtowishlist({id:key._id, productname:key.productname, productbrand:key.productbrand, productprice:key.productprice, description:key.description,category:key.category, subcategory:key.subcategory, images:key.images, defaultImage:key.defaultImage, ratings:key.ratings, status:key.status, qnty:1}))}}
                />

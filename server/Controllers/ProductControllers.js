@@ -8,6 +8,16 @@ const ProductShowOnHomePage=async(req,res)=>{
         console.log(error)
        }
 }
+const ProductDetails=async(req,res)=>{
+    const {id}=req.body;
+    try {
+        const details=await ProductModel.findById(id);
+        res.status(200).send(details);
+    } catch (error) {
+        console.log(error);
+    }
+}
 module.exports={
-    ProductShowOnHomePage
+    ProductShowOnHomePage,
+    ProductDetails
 }
