@@ -1,0 +1,63 @@
+
+
+import { useSelector, useDispatch } from "react-redux";
+import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+
+import BASE_URL from "../config";
+const Wishlist=()=>{
+    const wishlistData=useSelector(state=>state.wishlist.wish)
+
+
+    let sno=0;
+    const ans=wishlistData.map((key)=>{
+        sno++;
+        return(
+            <>
+            <tr>
+                <td>{sno}</td>
+                <td>
+                    <img src={`${BASE_URL}/${key.defaultImage}`} style={{ width: 60, height: 60 }} alt="" />
+                </td>
+                <td>{key.productname}</td>
+                <td>{key.productbrand}</td>
+                <td>
+                    <details>
+                        <summary>Details</summary>
+                            <p>{key.description}</p>
+                        
+                    </details>
+                </td>
+                <td>₹ {key.productprice}</td>
+                <td>
+                    <Button variant="danger">Dislike</Button>
+                </td>
+            </tr>
+            </>
+        )
+    })
+    return(
+        <>
+        <h3 align="center" style={{marginTop:"15px", marginBottom:"15px"}}>Wishlist</h3>
+        <div style={{marginBottom:"35px"}}>
+        <Table striped bordered hover style={{fontSize:"12px"}}>
+      <thead>
+        <tr>
+          <th>Sno</th>
+          <th>Image</th>
+          <th>Product Name</th>
+          <th>Brand</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Dislike</th>
+        </tr>
+      </thead>
+      <tbody>
+       {ans}
+       </tbody>
+       </Table>
+       </div>
+        </>
+    )
+}
+export default Wishlist

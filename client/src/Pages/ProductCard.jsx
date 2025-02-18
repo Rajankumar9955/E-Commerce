@@ -7,6 +7,9 @@ import { addtoCart } from "../Redux/cardSlice";
 import {useDispatch} from "react-redux"
 
 
+import { addtowishlist } from "../Redux/wishlistSlice";
+
+
 
 
 const ProductCard=()=>{
@@ -34,7 +37,9 @@ const ans=mydata.map((key)=>{
               <div className="product-card">
                     <div className="image-container">
         <img src={`${BASE_URL}/${key.defaultImage}`} alt={key.name} className="product-image" />
-               <FaRegHeart className="wishlist-icon" />
+               <FaRegHeart className="wishlist-icon" 
+                       onClick={()=>{dispatch(addtowishlist({id:key._id, productname:key.productname, productbrand:key.productbrand, productprice:key.productprice, description:key.description,category:key.category, subcategory:key.subcategory, images:key.images, defaultImage:key.defaultImage, ratings:key.ratings, status:key.status, qnty:1}))}}
+               />
                     </div>
                     <div className="product-info">
                         <div className="product-title-price">

@@ -43,6 +43,9 @@ const cartSlice=createSlice({
              } ,
              proDelete:(state,actions)=>{
                 state.cart=state.cart.filter(key=>key.id!=actions.payload.id)
+             },
+             wishlist:(state, actions)=>{
+                state
              }
     }
 })

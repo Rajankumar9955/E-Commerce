@@ -8,6 +8,7 @@ import AdminDashboard from "./Admin/AdminDashboard"
 import InsertProduct from "./Admin/InsertProduct"
 import UpdateProducts from "./Admin/UpdateProducts"
 import Cart from "./Components/Cart"
+import Wishlist from "./Components/Wishlist"
 const App=()=>{
   return(
     <>
@@ -17,6 +18,7 @@ const App=()=>{
                         <Route index element={<Home/>}/>
                         <Route path="home" element={<Home/>}/> 
                         <Route path="cart" element={<Cart/>}/> 
+                        <Route path="wishlist" element={<Wishlist/>}/> 
                         </Route>
 
 
