@@ -11,7 +11,7 @@ const Userlogin=()=>{
     const [password, setPassword] = useState("");
     const [userRole, setUserRole] = useState("");
     const navigate=useNavigate();
-console.log(email,password,userRole)
+    console.log(email,password,userRole)
 
 
 
@@ -25,6 +25,7 @@ console.log(email,password,userRole)
              const response= await axios.post(api, {email:email, password:password});
              console.log(response);
              localStorage.setItem("token", response.data.token);
+             navigate("/userlogin");
            } catch (error) {
             console.log(error)
         }

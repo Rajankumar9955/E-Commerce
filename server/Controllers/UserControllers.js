@@ -42,20 +42,20 @@ const UserLogin=async(req,res)=>{
     }
 }
 const UserProfile=async(req,res)=>{
-       const token=req.header(Authorization);
+       const token=req.header('Authorization');
        console.log(token);
-    //    res.send("lmkmkm");
+       res.send("lmkmkm");
 
-       try {
-            const decoded = jwt.verify(token.replace("Bearer ", ""), process.env.JWT_SECRET,);
-            console.log(decoded);
-           const user=await UserModel.findById(decoded.id)
-           console.log(user)
-           res.status(200).send(user);
+    //    try {
+    //         const decoded = jwt.verify(token.replace("Bearer ", ""), process.env.JWT_SECRET,);
+    //         console.log(decoded);
+    //        const user=await UserModel.findById(decoded.id)
+    //        console.log(user)
+    //        res.status(200).send(user);
 
-       } catch (error) {
-        console.log(error)
-       }
+    //    } catch (error) {
+    //     console.log(error)
+    //    }
 }
 module.exports={
     UserSignUp,

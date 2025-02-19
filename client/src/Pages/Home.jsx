@@ -7,7 +7,7 @@ import ProductCard from './ProductCard';
 
 import BASE_URL from '../config';
 
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { myLoginContext } from '../LoginContext';
 
 import axios from 'axios';
@@ -15,21 +15,24 @@ const Home=()=>{
      
   const {setIsLogedIn}=useContext(myLoginContext);
 
+
   const getProfile=async()=>{
           const token=localStorage.getItem("token");
-          const response=await axios.get(`${BASE_URL}/user/userprofile`,{
-            headers:{Authorization:`Bearer ${token}`}
-          });
-
-          console.log(response.data);
-          localStorage.setItem("userid", response.data._id);
-          localStorage.setItem("username", response.data.name);
-          setIsLogedIn(true)
+          try {
+            let api=`${BASE_URL}/user/userprofile`;
+            const response=await axios.post(api, null, {headers: { "Authorization": token } });
+            localStorage.setItem("userid", response.data._id)
+            localStorage.setItem("username", response.data.name);
+            setIsLogedIn(true); 
+          } catch (error) {
+            console.log(error)
+          }
   }
 
 useEffect(()=>{
-  if(localStorage.getItem("token")){
-    getProfile();
+  if(localStorage.getItem("token"))
+  {
+    getProfile()
   }
 },[])
 
@@ -63,6 +66,7 @@ useEffect(()=>{
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+
 
 {/* =====product card Here */}
     <ProductCard/>
