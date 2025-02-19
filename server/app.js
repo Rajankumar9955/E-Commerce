@@ -9,6 +9,7 @@ const bodyParser=require("body-parser")
 const cors=require('cors');
 const ADMINROUTES=require("./Routes/AdminRoutes")
 const PRODUCTROUTES=require("./Routes/ProductRoutes")
+const USERROUTES=require("./Routes/UserRoutes")
 const DB=require("./db");
 DB();
 
@@ -22,6 +23,7 @@ app.use(cors());
 
 app.use("/admin", ADMINROUTES);
 app.use("/product", PRODUCTROUTES);
+app.use("/user", USERROUTES);
 
 
 const port=process.env.PORT

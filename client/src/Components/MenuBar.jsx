@@ -69,7 +69,7 @@ const MenuBar=()=>{
               </Nav.Link>
               <Dropdown.Menu>
                 <Dropdown.Item as={Link} to="/userlogin">Login</Dropdown.Item>
-                <Dropdown.Item as={Link} to="/usersignup">Signup</Dropdown.Item>
+                <Dropdown.Item as={Link} to="/usersingup">Signup</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
             </Nav>
