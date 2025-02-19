@@ -24,6 +24,7 @@ console.log(email,password,userRole)
         try {
              const response= await axios.post(api, {email:email, password:password});
              console.log(response);
+             localStorage.setItem("token", response.data.token);
            } catch (error) {
             console.log(error)
         }

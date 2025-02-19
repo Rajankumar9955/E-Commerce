@@ -4,7 +4,35 @@ import img1 from "../Images/mob1.jpg"
 import img2 from "../Images/mob2.jpg"
 import img3 from "../Images/lap1.jpg"
 import ProductCard from './ProductCard';
+
+import BASE_URL from '../config';
+
+import { useContext, useEffect } from 'react';
+import { myLoginContext } from '../LoginContext';
+
+import axios from 'axios';
 const Home=()=>{
+     
+  const {setIsLogedIn}=useContext(myLoginContext);
+
+  const getProfile=async()=>{
+          const token=localStorage.getItem("token");
+          const response=await axios.get(`${BASE_URL}/user/userprofile`,{
+            headers:{Authorization:`Bearer ${token}`}
+          });
+
+          console.log(response.data);
+          localStorage.setItem("userid", response.data._id);
+          localStorage.setItem("username", response.data.name);
+          setIsLogedIn(true)
+  }
+
+useEffect(()=>{
+  if(localStorage.getItem("token")){
+    getProfile();
+  }
+},[])
+
     return(
         <>
          <Carousel>
@@ -38,6 +66,8 @@ const Home=()=>{
 
 {/* =====product card Here */}
     <ProductCard/>
+
+
 
         </>
     )

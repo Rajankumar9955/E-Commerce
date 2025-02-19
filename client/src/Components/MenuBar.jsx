@@ -17,13 +17,21 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import imglogo from "../Images/logo.jpg"
 import wish from "../Images/wish.jpg"
 import { useSelector } from "react-redux";
+
+import { useContext } from "react";
+import { myLoginContext } from "../LoginContext";
 const MenuBar=()=>{
     const [showDropdown, setShowDropdown] = useState(false);
 
     const productData=useSelector(state=>state.mycart.cart);
     const prolength=productData.length
 
+    const {isLogedIn, setIsLogedIn}=useContext(myLoginContext);
 
+    const logout=()=>{
+      localStorage.clear();
+      setIsLogedIn(false);
+    }
     return(
         <>
          <div id="topmenu">
@@ -68,8 +76,18 @@ const MenuBar=()=>{
                 <FaUser size={28} className="cursor-pointer mt-1 " />
               </Nav.Link>
               <Dropdown.Menu>
-                <Dropdown.Item as={Link} to="/userlogin">Login</Dropdown.Item>
-                <Dropdown.Item as={Link} to="/usersingup">Signup</Dropdown.Item>
+                {isLogedIn?(<>
+                             <Dropdown.Item as={Link} to="/userlogin">
+                                        Welcome {localStorage.getItem("username")}!
+                                  </Dropdown.Item>
+                                <Dropdown.Item  onClick={logout}>
+                                       Logout!
+                                 </Dropdown.Item>
+                </>):(<>
+                  <Dropdown.Item as={Link} to="/userlogin">Login</Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/usersingup">Signup</Dropdown.Item>
+                </>)}
+                
               </Dropdown.Menu>
             </Dropdown>
             </Nav>

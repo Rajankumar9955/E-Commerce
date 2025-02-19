@@ -41,7 +41,24 @@ const UserLogin=async(req,res)=>{
         console.log(error)
     }
 }
+const UserProfile=async(req,res)=>{
+       const token=req.header(Authorization);
+       console.log(token);
+    //    res.send("lmkmkm");
+
+       try {
+            const decoded = jwt.verify(token.replace("Bearer ", ""), process.env.JWT_SECRET,);
+            console.log(decoded);
+           const user=await UserModel.findById(decoded.id)
+           console.log(user)
+           res.status(200).send(user);
+
+       } catch (error) {
+        console.log(error)
+       }
+}
 module.exports={
     UserSignUp,
     UserLogin,
+    UserProfile,
 }
