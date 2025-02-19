@@ -20,6 +20,7 @@ import { useSelector } from "react-redux";
 
 import { useContext } from "react";
 import { myLoginContext } from "../LoginContext";
+
 const MenuBar=()=>{
     const [showDropdown, setShowDropdown] = useState(false);
 
@@ -34,6 +35,7 @@ const MenuBar=()=>{
     }
     return(
         <>
+
          <div id="topmenu">
         <Navbar expand="lg" className="bg-body-tertiary" style={{}}>
       <Container fluid>
@@ -78,14 +80,14 @@ const MenuBar=()=>{
               <Dropdown.Menu>
                 {isLogedIn?(<>
                              <Dropdown.Item as={Link} to="/userlogin">
-                                        Welcome {localStorage.getItem("username")}!
+                                        Welcome: <span style={{color:"green"}}>{localStorage.getItem("username")}</span>
                                   </Dropdown.Item>
                                 <Dropdown.Item  onClick={logout}>
                                        Logout!
                                  </Dropdown.Item>
                 </>):(<>
                   <Dropdown.Item as={Link} to="/userlogin">Login</Dropdown.Item>
-                  <Dropdown.Item as={Link} to="/usersingup">Signup</Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/usersignup">Signup</Dropdown.Item>
                 </>)}
                 
               </Dropdown.Menu>

@@ -25,12 +25,20 @@ const Userlogin=()=>{
              const response= await axios.post(api, {email:email, password:password});
              console.log(response);
              localStorage.setItem("token", response.data.token);
-             navigate("/userlogin");
+             navigate("/home");
            } catch (error) {
             console.log(error)
         }
     }
     }
+
+
+    useEffect(()=>{
+        if(localStorage.getItem("username"))
+        {
+            navigate("/home")
+        }
+    },[])
     return(
         <>
          <div className="signupcontainer" style={{marginTop:"-20px", marginBottom:"-37px"}}>
@@ -55,7 +63,7 @@ const Userlogin=()=>{
                     <button type="submit" className="signup-button" onClick={handleSubmit}>Login</button>
                 </form>
                 <p className="signup-text">
-                    Dont have an account? <Link to="/usersingup" className="signup-link">Sign Up</Link>
+                    Dont have an account? <Link to="/usersignup" className="signup-link">Sign Up</Link>
                 </p>
             </div>
         </div>

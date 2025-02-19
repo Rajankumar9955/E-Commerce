@@ -12,6 +12,7 @@ import Wishlist from "./Components/Wishlist"
 import Details from "./Pages/Details"
 import UserSignUp from "./Auth/UserSignUp"
 import Userlogin from "./Auth/Userlogin"
+import CheckOut from "./Pages/CheckOut"
 const App=()=>{
   return(
     <>
@@ -23,8 +24,9 @@ const App=()=>{
                         <Route path="cart" element={<Cart/>}/> 
                         <Route path="wishlist" element={<Wishlist/>}/> 
                         <Route path="details/:id" element={<Details/>}/> 
-                        <Route path="usersingup" element={<UserSignUp/>}/> 
+                        <Route path="usersignup" element={<UserSignUp/>}/> 
                         <Route path="userlogin" element={<Userlogin/>}/> 
+                        <Route path="checkout" element={<CheckOut/>}/> 
                         
                         </Route>
 

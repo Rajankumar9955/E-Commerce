@@ -33,7 +33,6 @@ const UserLogin=async(req,res)=>{
         {
             res.status(400).send({msg:"Invalid Password!"})
         }
-
         const token=await jwt.sign({id:User._id}, process.env.JWT_SECRET, { expiresIn: '7 days'});
         res.status(200).send({token:token})
 
@@ -43,19 +42,15 @@ const UserLogin=async(req,res)=>{
 }
 const UserProfile=async(req,res)=>{
        const token=req.header('Authorization');
-       console.log(token);
-       res.send("lmkmkm");
-
-    //    try {
-    //         const decoded = jwt.verify(token.replace("Bearer ", ""), process.env.JWT_SECRET,);
-    //         console.log(decoded);
-    //        const user=await UserModel.findById(decoded.id)
-    //        console.log(user)
-    //        res.status(200).send(user);
-
-    //    } catch (error) {
-    //     console.log(error)
-    //    }
+       try {
+            const decoded = jwt.verify(token, process.env.JWT_SECRET,);
+            // console.log(decoded);
+           const user=await UserModel.findById(decoded.id)
+        //    console.log(user)
+           res.status(200).send(user);
+       } catch (error) {
+        console.log(error)
+       }
 }
 module.exports={
     UserSignUp,

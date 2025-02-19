@@ -34,6 +34,13 @@ const handleSubmit=async(e)=>{
          toast.error(error.response.data.msg);
     }
 }
+
+useEffect(()=>{
+    if(localStorage.getItem("username"))
+    {
+        navigate("/home")
+    }
+},[])
     return(
         <>
           <div className="signup-container" style={{marginBottom:"62px", marginTop:"20px"}}>
