@@ -11,10 +11,9 @@ import BASE_URL from "../config";
 import axios from "axios";
 
 
-BASE_URL
-
 const Details=()=>{
     const [mydata,setmydata]=useState({});
+    // const [Images, setImages]=useState([]);
     const {id}=useParams();
     
     const loadData= async()=>{
@@ -22,6 +21,7 @@ const Details=()=>{
         try {
             const response=await axios.post(api,{id:id});
             setmydata(response.data);
+            console.log(response.data.images);
         } catch (error) {
             console.log(error)
         }
@@ -32,50 +32,28 @@ useEffect(()=>{
      
     return(
         <>
-           <div id="details">
-             <div id="details1" >
-             <Row>
-        <Col>
-     
-
-             <div id="productcard">
-                    <div id="imagecontainer">
-        <img src={`${BASE_URL}/${mydata.defaultImage}`} alt="photo" id="productimage" />
-               <FaRegHeart className="wishlisticon" 
-                    //    onClick={()=>{dispatch(addtowishlist({id:key._id, productname:key.productname, productbrand:key.productbrand, productprice:key.productprice, description:key.description,category:key.category, subcategory:key.subcategory, images:key.images, defaultImage:key.defaultImage, ratings:key.ratings, status:key.status, qnty:1}))}}
-               />
-                    </div>
-                    <div id="imageindex">
-                    <div id="imgindex">
-                        <img src={`${BASE_URL}/${mydata.images[0]}`} alt="" id="proimage" />
-                    </div>
-                    <div id="imgindex">
-                    <img src={`${BASE_URL}/${mydata.images[1]}`} alt="" id="proimage" />
-                    </div>
-                    <div id="imgindex">
-                    <img src={`${BASE_URL}/${mydata.images[2]}`} alt="" id="proimage" />
-                    </div>
-                    <div id="imgindex">
-                    <img src={`${BASE_URL}/${mydata.images[3]}`} alt="" id="proimage" />
-                    </div>
-              </div>
-                </div>
-                </Col>
-             <Col>
-                    <div id="decriptiondata">
-                        <div id="decriptiondata1">
-                            <h3>{mydata.productname}</h3>
-                           <p>{mydata.description}</p>
-                           <h2 align="center">{mydata.productbrand}</h2>
-                           <h6></h6>
-                        </div>
-                    </div>  
-             </Col>
-             </Row>
+        <div id="details">
+        <div id="images">
+          <img
+            src={`${BASE_URL}/${mydata.defaultImage}`} alt="" height="300px"
+          />
+          {/* <h1>{Images}</h1> */}
+          <div id="img-options">
+           {Images.map((key)=>{
+            return(
+                <>
+                     <img src={`${BASE_URL}/${key[0]}`} alt="image" height="35"/>
+                     <img src={`${BASE_URL}/${key[1]}`} alt="image" height="35"/>
+                     <img src={`${BASE_URL}/${key[2]}`} alt="image" height="35"/>
+                     <img src={`${BASE_URL}/${key[3]}`} alt="image" height="35"/>
+                </>
+            )
+           })}
+          </div>
+        </div>
 
 
-             </div>
-           </div>
+        </div>
         </>
     )
 }
