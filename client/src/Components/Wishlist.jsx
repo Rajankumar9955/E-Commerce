@@ -7,7 +7,11 @@ import Button from 'react-bootstrap/Button';
 import { prodislike } from "../Redux/wishlistSlice";
 
 import BASE_URL from "../config";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 const Wishlist=()=>{
+    const navigate=useNavigate()
     const wishlistData=useSelector(state=>state.wishlist.wish)
 
     const dispatch=useDispatch();
@@ -15,6 +19,13 @@ const Wishlist=()=>{
     const disLike=(id)=>{
        dispatch(prodislike({id:id}))
     }
+
+    useEffect(()=>{
+        if(!localStorage.getItem("username"))
+        {
+            navigate("/userlogin")
+        }
+    },[])
 
     let sno=0;
     const ans=wishlistData.map((key)=>{

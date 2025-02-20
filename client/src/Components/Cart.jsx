@@ -10,6 +10,7 @@ import { qntyIncrease, qntyDecrease, proDelete} from "../Redux/cardSlice";
 import BASE_URL from "../config";
 
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 const Cart=()=>{
     const navigate=useNavigate();
     const proData=useSelector(state=>state.mycart.cart);
@@ -27,6 +28,12 @@ const Cart=()=>{
         dispatch(proDelete({id:id}))
     }
 
+    useEffect(()=>{
+        if(!localStorage.getItem("username"))
+        {
+            navigate("/userlogin")
+        }
+    },[])
     let sno=0; 
     let grandTotal=0;
     const ans=proData.map((key)=>{

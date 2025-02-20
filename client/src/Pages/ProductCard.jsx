@@ -11,8 +11,6 @@ import { addtowishlist } from "../Redux/wishlistSlice";
 import { useNavigate } from "react-router-dom";
 
 
-
-
 const ProductCard=()=>{
 
     const [mydata, setMydata]= useState([]);
@@ -62,7 +60,7 @@ const ans=mydata.map((key)=>{
                         <div className="add-to-cart">
                         <Button variant="warning"  className="add-to-cart1">Shop Now</Button>
                         <Button variant="success" className="add-to-cart11"
-        onClick={()=>{dispatch(addtoCart({id:key._id, productname:key.productname, productbrand:key.productbrand, productprice:key.productprice, description:key.description,category:key.category, subcategory:key.subcategory, images:key.images, defaultImage:key.defaultImage, ratings:key.ratings, status:key.status, qnty:1}))}}
+        onClick={()=>{dispatch(addtoCart({id:key._id, productname:key.productname, productbrand:key.productbrand, productprice:key.productprice, description:key.description,category:key.category, subcategory:key.subcategory, images:key.images, defaultImage:key.defaultImage, ratings:key.rating, status:key.status, qnty:1}))}}
                         >Add to Cart</Button>
                 </div>
                     </div>
