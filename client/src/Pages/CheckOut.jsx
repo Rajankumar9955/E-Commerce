@@ -44,23 +44,20 @@ const CheckOut=()=>{
     let myProImg="";
     let myProList="";
     const ans= proData.map((key)=>{
-        totalAmount+=key.price * key.qnty;
+        totalAmount+=key.productprice * key.qnty;
         myProImg=`${BASE_URL}/${key.defaultImage}`;
-        myProList+=key.name+", ";
+        myProList+=key.productname+", ";
       return(
         <>
         <tr>
                <td> 
                <img src={`${BASE_URL}/${key.defaultImage}`} style={{ width: 50, height: 50 }} alt="Uploaded File" />
                </td>   
-                <td>{key.name} </td>
-                <td> {key.brand} </td>
-                <td> {key.price} </td>
-               <td> 
-                               {key.qnty} 
-                       </td>
-                <td> {key.price * key.qnty} </td>
-    
+                <td>{key.productname} </td>
+                <td> {key.productbrand} </td>
+                <td> {key.productprice} </td>
+                <td> {key.qnty} </td>
+                <td> {key.productprice * key.qnty} </td>
              </tr>
         </>
       )
@@ -76,7 +73,7 @@ const CheckOut=()=>{
     
   const initPay = (data) => {
     const options = {
-      key : "rzp_test_pzkHWxo3sRdVQW",
+      key : "rzp_test_xH8lHTk2JMtS8k",
       amount: data.amount,
       currency: data.currency,
       name: myProList,
@@ -85,7 +82,7 @@ const CheckOut=()=>{
       order_id: data.id,
       handler: async (response) => {
         try {
-          const verifyURL = "https://localhost:8080/api/payment/verify";
+          const verifyURL =`${BASE_URL}/api/payment/verify`;    //https://localhost:8080/api/payment/verify
           const {data} = await axios.post(verifyURL,response);
         } catch(error) {
           console.log(error);

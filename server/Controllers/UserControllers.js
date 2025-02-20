@@ -52,8 +52,19 @@ const UserProfile=async(req,res)=>{
         console.log(error)
        }
 }
+const GetUserDetail=async(req,res)=>{
+    const {id}=req.body;
+    // console.log(req.body);
+    try {
+        const Details=await UserModel.findById(id);
+        res.status(200).send(Details);
+    } catch (error) {
+        console.log(error)
+    }
+}
 module.exports={
     UserSignUp,
     UserLogin,
     UserProfile,
+    GetUserDetail
 }

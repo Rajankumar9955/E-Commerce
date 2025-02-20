@@ -10,6 +10,7 @@ const cors=require('cors');
 const ADMINROUTES=require("./Routes/AdminRoutes")
 const PRODUCTROUTES=require("./Routes/ProductRoutes")
 const USERROUTES=require("./Routes/UserRoutes")
+const PAYMENTROUTES=require("./Routes/payment");
 const DB=require("./db");
 DB();
 
@@ -25,6 +26,8 @@ app.use("/admin", ADMINROUTES);
 app.use("/product", PRODUCTROUTES);
 app.use("/user", USERROUTES);
 
+// Payment Routes
+app.use("/api/payment/",PAYMENTROUTES);
 
 const port=process.env.PORT
 app.listen(port, ()=>{
