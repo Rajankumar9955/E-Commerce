@@ -74,6 +74,7 @@ const Cart=()=>{
     })
     return(
         <>
+        <div style={{marginTop:"15px"}}>
            <Table striped bordered hover style={{fontSize:"12px"}}>
       <thead>
         <tr>
@@ -98,12 +99,13 @@ const Cart=()=>{
           <th>  </th>
           <th> </th>
           <th></th>
-          <th width="200" style={{color:"green", fontSize:"20px"}}> Grand Total:  </th>
+          <th width="200" style={{color:"green", fontSize:"20px"}} colspan="1"> Grand Total:  </th>
           <th style={{color:"green", fontSize:"20px"}}>₹ {grandTotal}.00 </th>
           <td><button style={{backgroundColor:"green",width:"90px",padding:"5px",borderRadius:"10px"}} onClick={()=>{navigate("/checkout")}}>Check-Out</button></td>
         </tr>
       </tbody>
       </Table>
+      </div>
         </>
     )
 }

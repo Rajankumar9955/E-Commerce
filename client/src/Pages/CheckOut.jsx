@@ -55,9 +55,9 @@ const CheckOut=()=>{
                </td>   
                 <td>{key.productname} </td>
                 <td> {key.productbrand} </td>
-                <td> {key.productprice} </td>
+                <td> ₹{key.productprice} </td>
                 <td> {key.qnty} </td>
-                <td> {key.productprice * key.qnty} </td>
+                <td> ₹{key.productprice * key.qnty} </td>
              </tr>
         </>
       )
@@ -101,7 +101,7 @@ const CheckOut=()=>{
   
      const handlePay = async () => {
       try {
-        const orderURL = "http://localhost:8080/api/payment/orders";
+        const orderURL = `${BASE_URL}/api/payment/orders` ;  //"http://localhost:8080/api/payment/orders
         const {data} = await axios.post(orderURL,{amount: totalAmount});
         console.log(data);
         initPay(data.data);
@@ -155,8 +155,8 @@ const CheckOut=()=>{
             <th>Product Name</th>
             <th>Brand</th>
             <th>Price</th>
-            <th> Quantity </th>
-            <th> Total Amount</th>
+            <th>Quantity </th>
+            <th>Total Amount</th>
           
           </tr>
         </thead>
@@ -164,7 +164,7 @@ const CheckOut=()=>{
          {ans}
          <tr>
            <th colspan="5"> Net Amount :  </th>
-           <th> {totalAmount} </th>
+           <th> ₹{totalAmount} </th>
          </tr>
          <tr>
            <th colspan="6"> 

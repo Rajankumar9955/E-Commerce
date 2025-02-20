@@ -29,6 +29,7 @@
 } */
 #item-details #images {
     width: 40%;
+    cursor: pointer;
     text-align: center;
     display: flex;
     flex-direction: row-reverse;
@@ -53,6 +54,7 @@
     gap: 10px;
     border-radius: 5px;
     width: 300px;
+    cursor: pointer;
 }
 
 #item-details #img-option img {
@@ -63,7 +65,9 @@
     width: 60px;
     padding: 5px;
 }
-
+#item-details #img-option img:hover{
+    transform: scale(1.2);
+}
 
 #item-details #contents {
     width: 50%;

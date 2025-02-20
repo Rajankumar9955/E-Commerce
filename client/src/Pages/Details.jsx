@@ -13,7 +13,10 @@ import { useDispatch } from "react-redux";
 import { addtoCart } from "../Redux/cardSlice";
 import { addtowishlist } from "../Redux/wishlistSlice";
 
+import { useNavigate } from "react-router-dom";
 const Details=()=>{
+        const navigate=useNavigate() 
+
     const dispatch=useDispatch();
     const [mydata,setmydata]=useState({});
     const [Image, setImages]=useState([]);
@@ -99,7 +102,7 @@ useEffect(()=>{
               }}
             >
               {" "}
-              <i class="fas fa-plus" /> AddtoCart
+              <i class="fas fa-plus" /> Add to Cart
             </Button>
             <Button
               size="sm"
@@ -124,8 +127,8 @@ useEffect(()=>{
               }}
             >
               <i class="fas fa-heart" style={{height:"100px"}}></i><FaRegHeart style={{width:"60px"}}/>
-            </Button>
-            <Button size="sm" variant="success">
+            </Button >
+            <Button size="large" variant="success" onClick={()=>{navigate("/checkout"(key._id))}}>
               Shop Now
             </Button>
           </div>

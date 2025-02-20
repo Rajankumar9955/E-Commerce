@@ -1,7 +1,8 @@
 
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
-import { FaUser } from "react-icons/fa";
+import { FaUserAltSlash } from "react-icons/fa";
+import { FaUserCheck } from "react-icons/fa6";
 import { CiLogout } from "react-icons/ci";
 
 import { useState } from "react";
@@ -51,14 +52,14 @@ const MenuBar=()=>{
             <Nav.Link as={Link}to="shop">Shop</Nav.Link>
             <Nav.Link as={Link}to="sale">Sale</Nav.Link>
             <NavDropdown title="Brands" id="navbarScrollingDropdown">
-              <NavDropdown.Item as={Link} to="eyetech">Apple</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="wipro">Samsung</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="ddlc">Vivo</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="daynight">Realme</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="daynight">Puma</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="daynight">Bata</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="apple">Apple</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="samsung">Samsung</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="vivo">Vivo</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="realme">Realme</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="puma">Puma</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="bata">Bata</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={Link}to="premiumcamera">
+              <NavDropdown.Item as={Link}to="premiumproduct">
                 Premium Product's 
               </NavDropdown.Item>
             </NavDropdown>
@@ -74,7 +75,12 @@ const MenuBar=()=>{
             {/* DROPDOWN */}
             <Dropdown show={showDropdown} onMouseEnter={() => setShowDropdown(true)} onMouseLeave={() => setShowDropdown(false)}>
               <Nav.Link className="d-flex align-items-center " onClick={() => setShowDropdown(!showDropdown)}>
-                <FaUser size={28} className="cursor-pointer mt-1 " />
+                {isLogedIn?(<>
+                  <FaUserCheck  className="cursor-pointer mt-1 "/>
+                </>):(<>
+                  <FaUserAltSlash  size={28}  />
+                </>)}
+              
               </Nav.Link>
               <Dropdown.Menu>
                 {isLogedIn?(<>
