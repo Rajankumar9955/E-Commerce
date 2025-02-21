@@ -49,17 +49,39 @@
 
 
 
-import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import "../css/AdminDashboard.css";
 import user from "../images/user.jpg";
 import logo from "../images/logo1.jpg";
+import Button from 'react-bootstrap/Button'
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
 
 import { FaBars, FaTimes, FaHome, FaPlus, FaTable,FaEdit, FaSignOutAlt } from "react-icons/fa";
 
 const AdminDashboard = () => {
+    const navigate=useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
+    const [adminEmail, setAdminEmail]=useState("")
+    const [adminName, setAdminName]=useState("")
+
+
+    useEffect(()=>{
+        if(localStorage.getItem("adminname")==null)
+        {
+            navigate("/userlogin")
+        }
+        // else
+        // {
+        //     setAdminName(localStorage.getItem("adminname"));
+        //     setAdminEmail(localStorage.getItem("adminemail"))
+        // }
+    },[])
+
+    const AdminlogOut=()=>{
+        localStorage.clear()
+        navigate("/userlogin")
+    }
     return (
         <div id="dashboard-container">
             {/* Sidebar */}
@@ -84,7 +106,7 @@ const AdminDashboard = () => {
                     <li><Link to="customerorders"><MdOutlineProductionQuantityLimits />Customer Orders</Link></li>
                     <li><Link to="updateproducts"><FaEdit /> Update Products</Link></li>
                     <li><Link to="updatecustomer"><FaEdit /> Update Customers</Link></li>
-                    <li><Link to="/" className="logout"><FaSignOutAlt /> Logout</Link></li>
+                <Button variant="danger" className="logout" style={{marginLeft:"55px"}} onClick={AdminlogOut}><FaSignOutAlt />Logout </Button>     
                 </ul>
             </div>
 
@@ -92,9 +114,9 @@ const AdminDashboard = () => {
             <div className={`main-content ${menuOpen ? "full" : ""}`}>
                 <header>
                     <FaBars className="menu-toggle" onClick={() => setMenuOpen(true)} />
-                    <h3 className="user-dash">DASHBOARD </h3>
+                    <h3 className="user-dash" >DASHBOARD</h3>
                     <div className="user-info">
-                        <img src={user} alt="User Icon" className="user-icon" />
+                     <Link to="/admindashboard/adminprofile"><img src={user} alt="User Icon" className="user-icon" /></Link>   
                     </div>
                 </header>
 

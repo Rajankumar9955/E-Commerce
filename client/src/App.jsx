@@ -16,6 +16,8 @@ import CheckOut from "./Pages/CheckOut"
 import CustomerOrders from "./Admin/CustomerOrders"
 import DisplayCustomer from "./Admin/DisplayCustomer"
 import UpdateCustomer from "./Admin/UpdateCustomer"
+import AdminProfile from "./Admin/AdminProfile"
+import SingleProductOrder from "./Pages/SingleProductOrder"
 const App=()=>{
   return(
     <>
@@ -30,6 +32,7 @@ const App=()=>{
                         <Route path="usersignup" element={<UserSignUp/>}/> 
                         <Route path="userlogin" element={<Userlogin/>}/> 
                         <Route path="checkout" element={<CheckOut/>}/> 
+                        <Route path="singleproductorder/:id" element={<SingleProductOrder/>}/> 
                         
                         </Route>
 
@@ -39,6 +42,8 @@ const App=()=>{
                           <Route path="customerorders" element={<CustomerOrders/>}/>
                           <Route path="displaycustomer" element={<DisplayCustomer/>}/>
                           <Route path="updatecustomer" element={<UpdateCustomer/>}/>
+                          <Route path="adminprofile" element={<AdminProfile/>}/> 
+                          <Route index element={<AdminProfile/>}/>
                         </Route>
                   </Routes>
     </BrowserRouter>

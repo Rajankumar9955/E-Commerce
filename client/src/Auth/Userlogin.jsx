@@ -5,6 +5,7 @@ import BASE_URL from "../config";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 const Userlogin=()=>{
     const [email, setEmail] = useState("");
@@ -14,14 +15,12 @@ const Userlogin=()=>{
     console.log(email,password,userRole)
 
 
-
-
     const handleSubmit=async(e)=>{
         e.preventDefault();
-        const api=`${BASE_URL}/user/userlogin`;
         if (userRole=="user")
         {
         try {
+            const api=`${BASE_URL}/user/userlogin`;
              const response= await axios.post(api, {email:email, password:password});
              console.log(response);
              localStorage.setItem("token", response.data.token);
@@ -30,7 +29,24 @@ const Userlogin=()=>{
             console.log(error)
         }
     }
+    else if(userRole=="admin"){
+        try {
+        const api=`${BASE_URL}/admin/adminlogin`;
+        const response=await axios.post(api,{email:email, password:password});
+        console.log(response.data);
+        if(response.status==200)
+        {
+            localStorage.setItem("adminname", response.data.name);
+            localStorage.setItem("adminemail", response.data.email);
+            navigate("/admindashboard");
+        }
+        } catch (error) {
+            toast.error(error.response.data.msg);
+        }
     }
+    }
+   
+
 
 
     useEffect(()=>{
@@ -66,6 +82,7 @@ const Userlogin=()=>{
                     Dont have an account? <Link to="/usersignup" className="signup-link">Sign Up</Link>
                 </p>
             </div>
+            <ToastContainer />
         </div>
         </>
     )

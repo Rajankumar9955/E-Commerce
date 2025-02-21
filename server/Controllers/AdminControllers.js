@@ -2,6 +2,7 @@
 const ProductModel=require("../Models/ProductModel")
 const ProductOrderModel=require("../Models/ProductOrders")
 const UserModel=require("../Models/UserModel");
+const AdminModel=require("../Models/AdminModel")
 
 const ProductInsert=async(req,res)=>{
   const imgurl=req.files.map(file=>file.path);
@@ -86,6 +87,22 @@ const CustomerDelete=async(req,res)=>{
     console.log(error)
   }
 }
+const AdminLogin=async(req,res)=>{
+    const {email, password}=req.body;
+    try {
+      const Admin=await AdminModel.findOne({email:email});
+      if(!Admin)
+      {
+        res.status(400).send({msg:"Email Doesn't Match"})
+      }
+      if(Admin.password!=password){
+        res.status(400).send({msg:"Invalid Password"});
+      }
+        res.status(200).send(Admin);
+    } catch (error) {
+      console.log(error)
+    }
+}
 module.exports={
     ProductInsert,
     ProductsUpdate,
@@ -94,5 +111,6 @@ module.exports={
     DeleteProduct,
     CustomerOrderDetails,
     DisplayCustomer,
-    CustomerDelete
+    CustomerDelete,
+    AdminLogin
 }

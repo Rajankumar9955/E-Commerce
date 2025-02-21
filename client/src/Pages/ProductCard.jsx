@@ -35,6 +35,10 @@ const detail=(id)=>{
     navigate(`/details/${id}`);
 }
 
+const SingleOrder=(id)=>{
+    navigate(`/singleproductorder/${id}`)
+}
+
 const ans=mydata.map((key)=>{
             return(
                 <>
@@ -58,7 +62,7 @@ const ans=mydata.map((key)=>{
                             ))}
                         </div> */}
                         <div className="add-to-cart">
-                        <Button variant="warning"  className="add-to-cart1">Shop Now</Button>
+                        <Button variant="warning"  className="add-to-cart1" onClick={()=>{SingleOrder(key._id)}}>Shop Now</Button>
                         <Button variant="success" className="add-to-cart11"
         onClick={()=>{dispatch(addtoCart({id:key._id, productname:key.productname, productbrand:key.productbrand, productprice:key.productprice, description:key.description,category:key.category, subcategory:key.subcategory, images:key.images, defaultImage:key.defaultImage, ratings:key.rating, status:key.status, qnty:1}))}}
                         >Add to Cart</Button>

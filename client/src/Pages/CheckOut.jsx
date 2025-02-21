@@ -101,7 +101,7 @@ const CheckOut=()=>{
   
      const handlePay = async () => {
       try {
-        const orderURL = `${BASE_URL}/api/payment/orders` ;  //"http://localhost:8080/api/payment/orders
+        const orderURL = `${BASE_URL}/api/payment/orders`;  //"http://localhost:8080/api/payment/orders
         const {data} = await axios.post(orderURL,{amount: totalAmount,productImage:myProImg,products:myProList,name:mydata.name, 
            contact:mydata.contact,email:mydata.email,address:mydata.address,city:mydata.city});
         console.log(data);
@@ -110,12 +110,6 @@ const CheckOut=()=>{
         console.log(error);
       }
     };
-  
-  
-  
-  
-  
-  
   
     return(
           <> 
