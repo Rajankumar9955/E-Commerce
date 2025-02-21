@@ -1,6 +1,7 @@
 
 const ProductModel=require("../Models/ProductModel")
-const UserModel=require("../Models/ProductOrders")
+const ProductOrderModel=require("../Models/ProductOrders")
+const UserModel=require("../Models/UserModel");
 
 const ProductInsert=async(req,res)=>{
   const imgurl=req.files.map(file=>file.path);
@@ -61,11 +62,20 @@ const DeleteProduct=async(req,res)=>{
 
 const CustomerOrderDetails=async(req,res)=>{
      try {
-           const Oders=await UserModel.find();
+           const Oders=await ProductOrderModel.find();
            res.status(200).send(Oders);
      } catch (error) {
       console.log(error)
      }
+}
+
+const DisplayCustomer=async(req,res)=>{
+  try {
+       const Users=await UserModel.find();
+       res.status(200).send(Users);
+  } catch (error) {
+    console.log(error)
+  }
 }
 module.exports={
     ProductInsert,
@@ -73,5 +83,6 @@ module.exports={
     ProductMakePrimary,
     ProductMakeNormal,
     DeleteProduct,
-    CustomerOrderDetails
+    CustomerOrderDetails,
+    DisplayCustomer
 }

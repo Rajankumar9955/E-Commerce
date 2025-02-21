@@ -1,12 +1,14 @@
 
+
+
+
 import { useState,useEffect } from "react";
 import BASE_URL from "../config";
 import Table from 'react-bootstrap/Table';
 import axios from "axios";
 
-const DisplayCustomer=()=>{
+const UpdateCustomer=()=>{
     const [mydata,setMydata]=useState([]);
-
 
     const loadData=async()=>{
         let api=`${BASE_URL}/admin/displaycustomer`;
@@ -57,8 +59,7 @@ const DisplayCustomer=()=>{
         {ans}
         </tbody>
         </Table>
-        
         </>
     )
 }
-export default DisplayCustomer
+export default UpdateCustomer;
