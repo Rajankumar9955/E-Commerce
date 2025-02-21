@@ -101,7 +101,7 @@ const MenuBar=()=>{
 
 
             <Nav.Link as={Link} to="/cart" className="d-flex align-items-center">
-              <button style={{textDecoration:"none",border:"none", marginRight:"5px",backgroundColor:"white"}}><FaShoppingCart size={25}/><sup style={{fontSize:"15px",height:"5px", width:"10px",borderRadius:"50%",backgroundColor:"red",padding:"5px"}}>{prolength}</sup></button>
+              <button style={{textDecoration:"none",border:"none", marginRight:"5px",backgroundColor:"white"}}><FaShoppingCart size={25}/><sup id="cart-count">{prolength}</sup></button>
             </Nav.Link>
 
             <Nav.Link as={Link} to="wishlist" className="d-flex align-items-center">

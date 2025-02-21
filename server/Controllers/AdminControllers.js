@@ -1,6 +1,6 @@
 
 const ProductModel=require("../Models/ProductModel")
-
+const UserModel=require("../Models/ProductOrders")
 
 const ProductInsert=async(req,res)=>{
   const imgurl=req.files.map(file=>file.path);
@@ -58,10 +58,20 @@ const DeleteProduct=async(req,res)=>{
     console.log(error)
   }
 }
+
+const CustomerOrderDetails=async(req,res)=>{
+     try {
+           const Oders=await UserModel.find();
+           res.status(200).send(Oders);
+     } catch (error) {
+      console.log(error)
+     }
+}
 module.exports={
     ProductInsert,
     ProductsUpdate,
     ProductMakePrimary,
     ProductMakeNormal,
-    DeleteProduct
+    DeleteProduct,
+    CustomerOrderDetails
 }

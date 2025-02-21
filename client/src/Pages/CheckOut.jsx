@@ -18,7 +18,7 @@ const CheckOut=()=>{
     const [mydata, setMydata] = useState({});
     const navigate= useNavigate();
   
-    const proData= useSelector(state=>state.mycart.cart);
+  const proData= useSelector(state=>state.mycart.cart);
   const dispatch= useDispatch();
   
   
@@ -102,7 +102,8 @@ const CheckOut=()=>{
      const handlePay = async () => {
       try {
         const orderURL = `${BASE_URL}/api/payment/orders` ;  //"http://localhost:8080/api/payment/orders
-        const {data} = await axios.post(orderURL,{amount: totalAmount});
+        const {data} = await axios.post(orderURL,{amount: totalAmount,productImage:myProImg,products:myProList,name:mydata.name, 
+           contact:mydata.contact,email:mydata.email,address:mydata.address,city:mydata.city});
         console.log(data);
         initPay(data.data);
       } catch (error) {

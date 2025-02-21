@@ -35,21 +35,46 @@ const Details=()=>{
 useEffect(()=>{
     loadData();
 },[])
+
+
+// Image Hover in details section
+// const [showimage, setShowImage] = useState(0);
+
+const showimg1 = (img1) => {
+  let im = document.getElementById("orignalimage");
+  im.src = img1;
+  // setShowImage(1);
+};
+const showimg2 = (img2) => {
+  let im = document.getElementById("orignalimage");
+  im.src = img2;
+  // setShowImage(1);
+};
+const showimg3 = (img3) => {
+  let im = document.getElementById("orignalimage");
+  im.src = img3;
+  // setShowImage(1);
+};
+const showimg4 = (img4) => {
+  let im = document.getElementById("orignalimage");
+  im.src = img4;
+  // setShowImage(1);
+};
      
     return(
         <>
          <div id="item-details">
          <div id="images">
             <div id="image-div">
-          <img src={`${BASE_URL}/${mydata.defaultImage}`} alt="" height="300px" />
+          <img src={`${BASE_URL}/${mydata.defaultImage}`} alt="" height="300px" id="orignalimage" />
             </div>
             
           <div id="img-option">
 
-                     <img src={`${BASE_URL}/${Image[0]}`} alt="image" height="35"/>
-                     <img src={`${BASE_URL}/${Image[1]}`} alt="image" height="35"/>
-                     <img src={`${BASE_URL}/${Image[2]}`} alt="image" height="35"/>
-                     <img src={`${BASE_URL}/${Image[3]}`} alt="image" height="35"/>
+                     <img src={`${BASE_URL}/${Image[0]}`} alt="image" height="35" onMouseEnter={()=>{showimg1(`${BASE_URL}/${Image[0]}`)}}/>
+                     <img src={`${BASE_URL}/${Image[1]}`} alt="image" height="35" onMouseEnter={()=>{showimg2(`${BASE_URL}/${Image[1]}`)}}/>
+                     <img src={`${BASE_URL}/${Image[2]}`} alt="image" height="35" onMouseEnter={()=>{showimg3(`${BASE_URL}/${Image[2]}`)}}/>
+                     <img src={`${BASE_URL}/${Image[3]}`} alt="image" height="35" onMouseEnter={()=>{showimg4(`${BASE_URL}/${Image[3]}`)}}/>
           </div>
         </div>
 
@@ -128,7 +153,7 @@ useEffect(()=>{
             >
               <i class="fas fa-heart" style={{height:"100px"}}></i><FaRegHeart style={{width:"60px"}}/>
             </Button >
-            <Button size="large" variant="success" onClick={()=>{navigate("/checkout"(key._id))}}>
+            <Button size="large" variant="warning" onClick={()=>{navigate(`/checkout`)}}>
               Shop Now
             </Button>
           </div>

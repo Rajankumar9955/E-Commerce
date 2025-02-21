@@ -1,6 +1,7 @@
 import { FaCirclePlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa";
 
+
 import { useSelector, useDispatch } from "react-redux";
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
@@ -31,6 +32,7 @@ const Cart=()=>{
     useEffect(()=>{
         if(!localStorage.getItem("username"))
         {
+            alert("Login Please");
             navigate("/userlogin")
         }
     },[])
@@ -110,6 +112,7 @@ const Cart=()=>{
         </tr>
       </tbody>
       </Table>
+   
       </div>
         </>
     )

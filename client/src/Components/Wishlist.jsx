@@ -23,6 +23,7 @@ const Wishlist=()=>{
     useEffect(()=>{
         if(!localStorage.getItem("username"))
         {
+            alert("Please Login")
             navigate("/userlogin")
         }
     },[])

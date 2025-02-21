@@ -3,12 +3,25 @@ const router = require("express").Router();
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
 
+const UserOrders=require("../Models/ProductOrders");
+// Orders Detail
 //Creating Order
-
-
-
 router.post("/orders",async(req,res) => {
     try {
+        
+        const {amount,productImage,products,name,contact,email,address,city}=req.body;
+        const data=await UserOrders.create({
+           amount:amount,
+           proImage:productImage,
+           products:products,
+           name:name,
+           contact:contact,
+           email:email,
+           address:address,
+           city:city,
+        })
+        // res.status(200).send("Your Order is Placed")
+
         const instance = new Razorpay({
             key_id: process.env.KEY_ID,
             key_secret: process.env.KEY_SECRET,
