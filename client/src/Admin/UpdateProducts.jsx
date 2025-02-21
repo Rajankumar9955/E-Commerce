@@ -44,10 +44,10 @@ const UpdateProduct=()=>{
             <td>{key.rating}</td>
             <td>
                 {key.status=="normal"?(<>
-                    <Button variant="success" onClick={(e)=>{MakePrimary(e,key._id)}}>Make Primary</Button>
+                    <Button variant="success" size="sm" onClick={(e)=>{MakePrimary(e,key._id)}}>Make Primary</Button>
                 </>
                 ):(<>
-                <Button variant="warning" onClick={(e)=>{MakeNormal(e,key._id)}}>Make Normal</Button>
+                <Button variant="warning" size="sm" onClick={(e)=>{MakeNormal(e,key._id)}}>Make Normal</Button>
                 </>)}
             </td>
             <td>

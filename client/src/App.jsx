@@ -14,6 +14,7 @@ import UserSignUp from "./Auth/UserSignUp"
 import Userlogin from "./Auth/Userlogin"
 import CheckOut from "./Pages/CheckOut"
 import CustomerOrders from "./Admin/CustomerOrders"
+import DisplayCustomer from "./Admin/DisplayCustomer"
 const App=()=>{
   return(
     <>
@@ -31,11 +32,11 @@ const App=()=>{
                         
                         </Route>
 
-
                         <Route path="admindashboard" element={<AdminDashboard/>}>
                           <Route path="insertproduct" element={<InsertProduct/>}/>
                           <Route path="updateproducts" element={<UpdateProducts/>}/>
                           <Route path="customerorders" element={<CustomerOrders/>}/>
+                          <Route path="displaycustomer" element={<DisplayCustomer/>}/>
                         </Route>
                   </Routes>
     </BrowserRouter>
