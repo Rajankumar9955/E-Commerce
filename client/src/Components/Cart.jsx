@@ -35,7 +35,7 @@ const Cart=()=>{
         }
     },[])
  
-    const seedetail=(id)=>{
+    const ProductDetail=(id)=>{
        navigate(`/details/${id}`);
     }
 
@@ -49,7 +49,7 @@ const Cart=()=>{
             <tr>
                 <td>{sno}</td>
                 <td>
-                    <img src={`${BASE_URL}/${key.defaultImage}`}  style={{ width: 60, height: 60 , cursor:"pointer"}} alt="Image" onClick={()=>{seedetail(key.id)}}/>
+                    <img src={`${BASE_URL}/${key.defaultImage}`}  style={{ width: 60, height: 60 , cursor:"pointer"}} alt="Image" onClick={()=>{ProductDetail(key.id)}}/>
                 </td>
                 <td>{key.productname}</td>
                 <td>{key.productbrand}</td>

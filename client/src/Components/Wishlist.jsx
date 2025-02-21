@@ -27,6 +27,9 @@ const Wishlist=()=>{
         }
     },[])
 
+const ProductDetails=(id)=>{
+    navigate(`/details/${id}`);
+}
     let sno=0;
     const ans=wishlistData.map((key)=>{
         sno++;
@@ -35,7 +38,7 @@ const Wishlist=()=>{
             <tr>
                 <td>{sno}</td>
                 <td>
-                    <img src={`${BASE_URL}/${key.defaultImage}`} style={{ width: 60, height: 60 }} alt="" />
+                    <img src={`${BASE_URL}/${key.defaultImage}`} style={{ width: 60, height: 60 ,cursor:"pointer"}}  onClick={()=>{ProductDetails(key.id)}} alt="" />
                 </td>
                 <td>{key.productname}</td>
                 <td>{key.productbrand}</td>
