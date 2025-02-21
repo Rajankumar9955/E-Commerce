@@ -15,6 +15,7 @@ import Userlogin from "./Auth/Userlogin"
 import CheckOut from "./Pages/CheckOut"
 import CustomerOrders from "./Admin/CustomerOrders"
 import DisplayCustomer from "./Admin/DisplayCustomer"
+import UpdateCustomer from "./Admin/UpdateCustomer"
 const App=()=>{
   return(
     <>
@@ -37,6 +38,7 @@ const App=()=>{
                           <Route path="updateproducts" element={<UpdateProducts/>}/>
                           <Route path="customerorders" element={<CustomerOrders/>}/>
                           <Route path="displaycustomer" element={<DisplayCustomer/>}/>
+                          <Route path="updatecustomer" element={<UpdateCustomer/>}/>
                         </Route>
                   </Routes>
     </BrowserRouter>

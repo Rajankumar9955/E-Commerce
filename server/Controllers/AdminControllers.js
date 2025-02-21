@@ -77,6 +77,15 @@ const DisplayCustomer=async(req,res)=>{
     console.log(error)
   }
 }
+const CustomerDelete=async(req,res)=>{
+  const {id}=req.body;
+  try {
+    const del=await UserModel.findByIdAndDelete(id);
+    res.status(200).send({msg:"Customer Delete SuccessFully"});
+  } catch (error) {
+    console.log(error)
+  }
+}
 module.exports={
     ProductInsert,
     ProductsUpdate,
@@ -84,5 +93,6 @@ module.exports={
     ProductMakeNormal,
     DeleteProduct,
     CustomerOrderDetails,
-    DisplayCustomer
+    DisplayCustomer,
+    CustomerDelete
 }

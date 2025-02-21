@@ -46,6 +46,7 @@ const storage = multer.diskStorage({
   route.post('/deleteProduct', AdminControllers.DeleteProduct);
   route.get('/customerOrders', AdminControllers.CustomerOrderDetails);
   route.get('/displaycustomer', AdminControllers.DisplayCustomer);
+  route.post('/userDelete', AdminControllers.CustomerDelete);
 
 
 

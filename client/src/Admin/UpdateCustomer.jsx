@@ -6,6 +6,7 @@ import { useState,useEffect } from "react";
 import BASE_URL from "../config";
 import Table from 'react-bootstrap/Table';
 import axios from "axios";
+import Button from 'react-bootstrap/Button';
 
 const UpdateCustomer=()=>{
     const [mydata,setMydata]=useState([]);
@@ -24,6 +25,19 @@ const UpdateCustomer=()=>{
         loadData();
     },[])
 
+const CustomerDetel=async(id)=>{
+     try {
+         let api=`${BASE_URL}/admin/UserDelete`
+         const response=await axios.post(api,{id:id});
+         alert(response.data.msg);
+         loadData()
+     } catch (error) {
+        console.log(error)
+     }
+}
+
+
+
     let sno=0;
     const ans=mydata.map((key)=>{
         sno++;
@@ -36,6 +50,9 @@ const UpdateCustomer=()=>{
                 <td>{key.city}</td>
                 <td>{key.contact}</td>
                 <td>{key.email}</td>
+                <td>
+                    <Button variant="danger" onClick={()=>{CustomerDetel(key._id)}}>Delete</Button>
+                </td>
                </tr>
             </>
         )
@@ -53,6 +70,7 @@ const UpdateCustomer=()=>{
           <th>City</th>
           <th>Contact</th>
           <th>Email</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
