@@ -56,7 +56,7 @@ const CheckOut=()=>{
                 <td>{key.productname} </td>
                 <td> {key.productbrand} </td>
                 <td> ₹{key.productprice} </td>
-                <td> {key.qnty} </td>
+                <td> {key.qnty}</td>
                 <td> ₹{key.productprice * key.qnty} </td>
              </tr>
         </>
