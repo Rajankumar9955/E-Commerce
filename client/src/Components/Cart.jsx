@@ -34,6 +34,11 @@ const Cart=()=>{
             navigate("/userlogin")
         }
     },[])
+ 
+    const seedetail=(id)=>{
+       navigate(`/details/${id}`);
+    }
+
     let sno=0; 
     let grandTotal=0;
     const ans=proData.map((key)=>{
@@ -44,7 +49,7 @@ const Cart=()=>{
             <tr>
                 <td>{sno}</td>
                 <td>
-                    <img src={`${BASE_URL}/${key.defaultImage}`}  style={{ width: 60, height: 60 }} alt="Image" />
+                    <img src={`${BASE_URL}/${key.defaultImage}`}  style={{ width: 60, height: 60 , cursor:"pointer"}} alt="Image" onClick={()=>{seedetail(key.id)}}/>
                 </td>
                 <td>{key.productname}</td>
                 <td>{key.productbrand}</td>
