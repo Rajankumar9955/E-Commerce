@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "dev":"nodemon",
-    "start": "node app.js",
     "preview": "vite preview"
   },
   "dependencies": {
