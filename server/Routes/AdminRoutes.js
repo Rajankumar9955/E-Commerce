@@ -37,8 +37,8 @@ const storage = multer.diskStorage({
         fileFilter: fileFilter,
         limits: { fileSize: 5 * 1024 * 1024 }, // Limit files to 5MB
       });
-
-
+      
+      
   route.post('/productInsert', upload.array('files',10), AdminControllers.ProductInsert);
   route.get('/updateproducts', AdminControllers.ProductsUpdate);
   route.post('/productMakePrimary', AdminControllers.ProductMakePrimary);
