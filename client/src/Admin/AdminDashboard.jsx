@@ -51,7 +51,7 @@
 
 import { useEffect, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import "../css/AdminDashboard.css";
+import "../Css/AdminDashboard.css";
 import user from "../images/user.jpg";
 import logo from "../images/logo1.jpg";
 import Button from 'react-bootstrap/Button'
