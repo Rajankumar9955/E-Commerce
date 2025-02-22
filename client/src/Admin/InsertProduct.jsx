@@ -98,11 +98,11 @@ const InsertProduct=()=>{
         ))}
        </Form.Select>
 
-        <FloatingLabel controlId="floatingInput" label="Enter Product Name"  className="mb-1">
+        <FloatingLabel controlId="floatingInput" label="Product Name"  className="mb-1">
         <Form.Control type="text" placeholder="name@example.com" name='productname' value={input.productname || ""} onChange={handleInput}/>
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingPassword" label="Enter Product Brand"  className="mb-1">
+      <FloatingLabel controlId="floatingPassword" label="Product Brand"  className="mb-1">
         <Form.Control type="text" placeholder="Enter Product Brand" name='productbrand' value={input.productbrand || "" } onChange={handleInput} />
       </FloatingLabel>
 
@@ -115,7 +115,7 @@ const InsertProduct=()=>{
       </FloatingLabel>
 
 
-      <FloatingLabel controlId="floatingTextarea2" label="Product Description" className="mb-1">
+      <FloatingLabel controlId="floatingTextarea2" label="Description" className="mb-1">
         <Form.Control as="textarea" placeholder="Product Description" style={{ height: '108px' }} name='description' value={input.description || ""} onChange={handleInput}/>
       </FloatingLabel>
 
