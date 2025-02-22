@@ -53,7 +53,7 @@ import { useEffect, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import "../Css/AdminDashboard.css";
 import user from "../Images/user.jpg";
-import logo from "../images/logo1.jpg";
+import logo from "../Images/logo1.jpg";
 import Button from 'react-bootstrap/Button'
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
 
