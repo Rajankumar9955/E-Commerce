@@ -75,14 +75,15 @@ const InsertProduct=()=>{
     
     return(
         <>
-        <h3  style={{ marginLeft:"16%",marginTop:"25px",fontFamily:"cursive", fontWeight:"bold"}}>INSERT PRODUCTS</h3>
-        <div style={{width:"90%"}}>
-            <div style={{marginLeft:"30px", marginTop:"15px"}}>
-   
-      <Row >
-        <div style={{width:"325px"}}>
-        <Col>
+        <div style={{width:"100%", marginTop:"15px"}}>
+       
+          <div style={{width:"95%",margin:"auto", marginTop:"15px"}}>        
+          <h3  align="center">INSERT PRODUCTS</h3>
 
+          <div style={{padding:"10px",marginTop:"15px", backgroundColor:"#2325"}}>
+      <Row style={{margin:"auto", backgroundColor:"#2325"}} >
+   
+        <Col style={{padding:"10px",marginTop:"15px"}}>
         <Form.Select size="lg" className="mb-2" value={selectCategory}  onChange={handleCategoryChange}>
         <option value="">Select Product Category</option>
          {Object.keys(categories).map((cat)=>(
@@ -106,12 +107,10 @@ const InsertProduct=()=>{
       </FloatingLabel>
 
         </Col>
-        </div>
+   
+        <Col style={{padding:"10px",marginTop:"15px"}}>
 
-       <div style={{width:"325px"}} align="center">
-        <Col>
-
-        <FloatingLabel controlId="floatingInput" label="Enter Product Price:₹" className="mb-1">
+        <FloatingLabel controlId="floatingInput" label="Enter Price:" className="mb-1">
         <Form.Control type="number" placeholder="name@example.com" name='productprice' value={input.productprice || ""} onChange={handleInput} />
       </FloatingLabel>
 
@@ -124,13 +123,19 @@ const InsertProduct=()=>{
         <Form.Control type="file" multiple placeholder="Upload Images" onChange={handleFileChange} />
       </FloatingLabel>
 
-        <Button variant='success' onClick={handleSubmit} style={{marginBottom:"5px",marginTop:"5px"}}>Now Insert!</Button>
         </Col>
+        <div style={{width:"100%"}}>
+          <div style={{width:"50%", margin:"auto"}}>
+        <Button   variant="info" onClick={handleSubmit} style={{marginBottom:"15px",height:"40px",width:"100%"}}>Now Insert!</Button>
+        </div>
         </div>
       </Row>
+      </div>
+    </div>
     
     </div>
-    </div>
+    {/* </div>
+    </div> */}
         </>
     )
 }
