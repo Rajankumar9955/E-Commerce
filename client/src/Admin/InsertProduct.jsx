@@ -80,8 +80,8 @@ const InsertProduct=()=>{
           <div style={{width:"95%",margin:"auto", marginTop:"15px"}}>        
           <h3  align="center">INSERT PRODUCTS</h3>
 
-          <div style={{padding:"10px",marginTop:"15px", backgroundColor:"#2325"}}>
-      <Row style={{margin:"auto", backgroundColor:"#2325"}} >
+          <div style={{padding:"10px",marginTop:"15px", backgroundColor:"#2325",borderRadius:"15px"}}>
+      <Row style={{margin:"auto", backgroundColor:"#2325",borderRadius:"15px"}} >
    
         <Col style={{padding:"10px",marginTop:"15px"}}>
         <Form.Select size="lg" className="mb-2" value={selectCategory}  onChange={handleCategoryChange}>

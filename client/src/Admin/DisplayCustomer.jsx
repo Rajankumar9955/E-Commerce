@@ -41,6 +41,7 @@ const DisplayCustomer=()=>{
 
     return(
         <>
+        <div style={{overflowX:"scroll", overflowY:"scroll", scrollBehavior:"smooth"}}>
          <h3 align="center" style={{marginTop:"15px",marginBottom:"15px"}}>All Customer's</h3>
         <Table striped bordered hover   style={{fontSize:"14px"}}>
       <thead>
@@ -57,7 +58,7 @@ const DisplayCustomer=()=>{
         {ans}
         </tbody>
         </Table>
-        
+        </div>
         </>
     )
 }
