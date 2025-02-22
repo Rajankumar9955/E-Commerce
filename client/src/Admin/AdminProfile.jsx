@@ -1,5 +1,5 @@
 import { useState ,useEffect} from "react"
-import user from "../images/user.jpg";
+import user from "../Images/user.jpg";
 import Button from "react-bootstrap/Button"
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
