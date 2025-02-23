@@ -14,6 +14,11 @@ const ProductOrderSchema=new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now
-      }
+    },
+    
+      userid:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'user'
+    }
 })
 module.exports=mongoose.model("order", ProductOrderSchema)

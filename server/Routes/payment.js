@@ -9,7 +9,7 @@ const UserOrders=require("../Models/ProductOrders");
 router.post("/orders",async(req,res) => {
     try {
         
-        const {amount,productImage,products,name,contact,email,address,city}=req.body;
+        const {amount,productImage,products,name,contact,email,address,city,userid}=req.body;
         const data=await UserOrders.create({
            amount:amount,
            proImage:productImage,
@@ -19,6 +19,7 @@ router.post("/orders",async(req,res) => {
            email:email,
            address:address,
            city:city,
+           userid:userid
         })
         // res.status(200).send("Your Order is Placed")
 

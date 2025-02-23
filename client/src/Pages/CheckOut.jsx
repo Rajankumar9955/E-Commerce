@@ -15,6 +15,7 @@ import { proDelete, qntyDecrease, qntyIncrease } from "../Redux/cardSlice";
 
 
 const CheckOut=()=>{
+   const userid=localStorage.getItem("userid")
     const [mydata, setMydata] = useState({});
     const navigate= useNavigate();
   
@@ -34,7 +35,7 @@ const CheckOut=()=>{
   
     const loadData=async()=>{
       const api=`${BASE_URL}/user/getuserdetail`;
-      const response = await axios.post(api, {id:localStorage.getItem("userid")});
+      const response = await axios.post(api, {id:userid}); //localStorage.getItem("userid")
       console.log(response.data);
       setMydata(response.data);
     }
@@ -70,7 +71,16 @@ const CheckOut=()=>{
       price: 500,
   });
   
-    
+  const Alldata = {
+    name:mydata.name,
+    mobile:mydata.contact,
+    email:mydata.email,
+    adress:mydata.address,
+    city:mydata.city,
+    productImage:myProImg,
+    products:myProList,
+    userid:userid
+  }
   const initPay = (data) => {
     const options = {
       key : "rzp_test_xH8lHTk2JMtS8k",
@@ -102,8 +112,7 @@ const CheckOut=()=>{
      const handlePay = async () => {
       try {
         const orderURL = `${BASE_URL}/api/payment/orders`;  //"http://localhost:8080/api/payment/orders
-        const {data} = await axios.post(orderURL,{amount: totalAmount,productImage:myProImg,products:myProList,name:mydata.name, 
-           contact:mydata.contact,email:mydata.email,address:mydata.address,city:mydata.city});
+        const {data} = await axios.post(orderURL,{amount: totalAmount, ...Alldata});
         console.log(data);
         initPay(data.data);
       } catch (error) {
@@ -136,8 +145,6 @@ const CheckOut=()=>{
           <Form.Label>City</Form.Label>
           <Form.Control type="text" value={mydata.city} style={{backgroundColor:"#f4eded"}} />
         </Form.Group>
-        
-  
         
      
       </Form>
