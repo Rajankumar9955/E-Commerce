@@ -134,8 +134,7 @@ const InsertProduct=()=>{
     </div>
     
     </div>
-    {/* </div>
-    </div> */}
+   
         </>
     )
 }
