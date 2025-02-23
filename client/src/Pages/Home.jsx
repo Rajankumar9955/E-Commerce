@@ -23,6 +23,7 @@ const Home=()=>{
             const response=await axios.post(api, null, {headers: { "Authorization": token } });
             localStorage.setItem("userid", response.data._id)
             localStorage.setItem("username", response.data.name);
+            localStorage.setItem("useremail", response.data.email);
             setIsLogedIn(true); 
           } catch (error) {
             console.log(error)

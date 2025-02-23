@@ -87,9 +87,13 @@ const MenuBar=()=>{
                              <Dropdown.Item as={Link} to="/userlogin">
                                         Welcome: <span style={{color:"green"}}>{localStorage.getItem("username")}</span>
                                   </Dropdown.Item>
+                                  <Dropdown.Item  as={Link} to="/userdashboard">
+                                      Your Profile:
+                                 </Dropdown.Item>
                                 <Dropdown.Item  onClick={logout}>
                                        Logout!
                                  </Dropdown.Item>
+                                 
                 </>):(<>
                   <Dropdown.Item as={Link} to="/userlogin">Login</Dropdown.Item>
                   <Dropdown.Item as={Link} to="/usersignup">Signup</Dropdown.Item>

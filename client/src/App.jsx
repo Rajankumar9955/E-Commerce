@@ -18,6 +18,7 @@ import DisplayCustomer from "./Admin/DisplayCustomer"
 import UpdateCustomer from "./Admin/UpdateCustomer"
 import AdminProfile from "./Admin/AdminProfile"
 import SingleProductOrder from "./Pages/SingleProductOrder"
+import UserDashboard from "./Users/UserDashboard"
 const App=()=>{
   return(
     <>
@@ -35,7 +36,7 @@ const App=()=>{
                         <Route path="singleproductorder/:id" element={<SingleProductOrder/>}/> 
                         
                         </Route>
-
+                               {/* Admin DashBoard  */}
                         <Route path="admindashboard" element={<AdminDashboard/>}>
                           <Route path="insertproduct" element={<InsertProduct/>}/>
                           <Route path="updateproducts" element={<UpdateProducts/>}/>
@@ -44,7 +45,11 @@ const App=()=>{
                           <Route path="updatecustomer" element={<UpdateCustomer/>}/>
                           <Route path="adminprofile" element={<AdminProfile/>}/> 
                           <Route index element={<AdminProfile/>}/>
+                               
                         </Route>
+
+                                   {/* UserDashBoard */}
+                            <Route path="userdashboard" element={<UserDashboard/>} />
                   </Routes>
     </BrowserRouter>
     </>
