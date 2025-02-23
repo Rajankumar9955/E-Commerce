@@ -3,7 +3,8 @@ import { useState,useEffect } from "react";
 import BASE_URL from "../config";
 import Table from 'react-bootstrap/Table';
 import axios from "axios";
-
+import { Button } from "react-bootstrap";
+import { toast, ToastContainer } from "react-toastify";
 const CustomerOrders=()=>{
 
   const [mydata,setMydata]=useState([]);
@@ -24,11 +25,23 @@ const CustomerOrders=()=>{
     },[])
 
 
+    const customerOrderDelete= async(e,id)=>{
+        e.preventDefault();
+        const api=`${BASE_URL}/admin/customerOrderDelete`;
+        try {
+            const response=await axios.post(api,{id:id});
+            toast.error(response.data.msg);
+        } catch (error) {
+            console.log(error)
+        }
+        loadData();
+     }
+    
+
 
    let sno=0;
    const ans=mydata.map((key)=>{
     sno++;
-
 // converting time in indian standard time
     const isoDate=key.date;
     const date = new Date(isoDate);
@@ -64,6 +77,9 @@ const CustomerOrders=()=>{
 
         <td>{key.city}</td>
         <td>{DateandTime}</td>
+        <td>
+          <Button variant="danger" onClick={(e)=>{customerOrderDelete(e,key._id)}}>Delete</Button>
+        </td>
       </tr>
       
       </>
@@ -92,6 +108,7 @@ const CustomerOrders=()=>{
         {ans}
         </tbody>
         </Table>
+        <ToastContainer/>
         </>
     )
 }

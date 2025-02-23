@@ -4,6 +4,7 @@ import BASE_URL from "../config";
 import Table from 'react-bootstrap/Table';
 import axios from "axios";
 import { Button } from "react-bootstrap";
+import { toast, ToastContainer } from "react-toastify";
 const UpdateProduct=()=>{
     const [mydata,setMydata]=useState([]);
 
@@ -37,7 +38,7 @@ const UpdateProduct=()=>{
                     <p>{key.description}</p>
                    </details>
             </td>
-            <td>{key.productprice}</td>
+            <td>₹{key.productprice}</td>
             <td>{key.category}</td>
             <td>{key.subcategory}</td>
             <td>{key.status}</td>
@@ -87,7 +88,7 @@ const UpdateProduct=()=>{
         const api=`${BASE_URL}/admin/deleteProduct`;
         try {
             const response=await axios.post(api,{id:id});
-            console.log(response.data);
+            toast.error(response.data.msg);
         } catch (error) {
             console.log(error)
         }
@@ -116,6 +117,7 @@ const UpdateProduct=()=>{
         {ans}
         </tbody>
         </Table>
+        <ToastContainer/>
         </>
     )
 }

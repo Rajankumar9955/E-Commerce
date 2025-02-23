@@ -103,6 +103,15 @@ const AdminLogin=async(req,res)=>{
       console.log(error)
     }
 }
+const OrderDeleteByAdmin=async(req,res)=>{
+  const {id}=req.body;
+  try {
+    const del=await ProductOrderModel.findByIdAndDelete(id);
+    res.status(200).send({msg:"Order SuccessFully  Deleted"});
+  } catch (error) {
+    console.log(error)
+  }
+}
 module.exports={
     ProductInsert,
     ProductsUpdate,
@@ -112,5 +121,6 @@ module.exports={
     CustomerOrderDetails,
     DisplayCustomer,
     CustomerDelete,
-    AdminLogin
+    AdminLogin,
+    OrderDeleteByAdmin
 }
