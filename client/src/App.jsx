@@ -19,6 +19,7 @@ import UpdateCustomer from "./Admin/UpdateCustomer"
 import AdminProfile from "./Admin/AdminProfile"
 import SingleProductOrder from "./Pages/SingleProductOrder"
 import UserDashboard from "./Users/UserDashboard"
+import UserOrders from "./Users/UserOrders"
 const App=()=>{
   return(
     <>
@@ -49,7 +50,9 @@ const App=()=>{
                         </Route>
 
                                    {/* UserDashBoard */}
-                            <Route path="userdashboard" element={<UserDashboard/>} />
+                            <Route path="userdashboard" element={<UserDashboard/>}>
+                            <Route path="userorders" element={<UserOrders/>}/>
+                            </Route>
                   </Routes>
     </BrowserRouter>
     </>

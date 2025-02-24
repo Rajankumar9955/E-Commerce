@@ -54,7 +54,7 @@ const UserDashboard = () => {
                 </div>
                 <ul className="sidebar-menu">
                     <li><Link to="/dashboard" className="active"><FaHome /> Dashboard</Link></li>
-                    <li><Link to="customerorders"><MdOutlineProductionQuantityLimits />Your Orders</Link></li>
+                    <li><Link to="userorders"><MdOutlineProductionQuantityLimits />Your Orders</Link></li>
                     <li><Link to="updateproducts"><FaEdit /> Update Products</Link></li>
                     <li><Link to="updatecustomer"><FaEdit /> Update Customers</Link></li>
                 <Button variant="danger" className="logout" style={{marginLeft:"55px"}} onClick={UserlogOut}><FaSignOutAlt />Logout </Button>     

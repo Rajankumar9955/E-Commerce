@@ -2,6 +2,7 @@
 
 const UserModel=require("../Models/UserModel")
 const jwt =require("jsonwebtoken")
+const ProductOrder=require("../Models/ProductOrders")
 const UserSignUp=async(req,res)=>{
     const {name,address, city,contact,email,password,confirmPassword}=req.body;
     try {
@@ -62,9 +63,19 @@ const GetUserDetail=async(req,res)=>{
         console.log(error)
     }
 }
+const UserOrders=async(req,res)=>{
+    const {userid}=req.body;
+    try {
+        const data=await ProductOrder.find({userid:userid}).populate("userid")
+        res.status(200).send(data); 
+    } catch (error) {
+        res.status(400).send({msg:"Something Went Wrong!"});
+    }
+}
 module.exports={
     UserSignUp,
     UserLogin,
     UserProfile,
-    GetUserDetail
+    GetUserDetail,
+    UserOrders
 }
