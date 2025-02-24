@@ -69,9 +69,9 @@ const UserOrders=()=>{
     })
     return(
         <>
-         <div style={{overflowX:"scroll", overflowY:"scroll", scrollBehavior:"smooth"}}>
+         <div style={{overflowX:"scroll", overflowY:"scroll", scrollBehavior:"smooth",height:"525px"}}>
          <h3 align="center" style={{marginTop:"15px",marginBottom:"15px"}}>Your Order's</h3>
-        <Table striped bordered hover   style={{fontSize:"14px"}}>
+        <Table striped bordered hover   style={{fontSize:"14px", position:"relative", top:"15px"}}>
       <thead>
         <tr>
         <th>sno</th>

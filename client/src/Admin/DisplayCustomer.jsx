@@ -3,6 +3,9 @@ import { useState,useEffect } from "react";
 import BASE_URL from "../config";
 import Table from 'react-bootstrap/Table';
 import axios from "axios";
+import Button from 'react-bootstrap/Button';
+
+import Form from 'react-bootstrap/Form';
 
 const DisplayCustomer=()=>{
     const [mydata,setMydata]=useState([]);
@@ -41,8 +44,18 @@ const DisplayCustomer=()=>{
 
     return(
         <>
-        <div style={{overflowX:"scroll", overflowY:"scroll", scrollBehavior:"smooth"}}>
+        
+        <div style={{overflowX:"scroll", overflowY:"scroll", scrollBehavior:"smooth",height:"525px"}}>
          <h3 align="center" style={{marginTop:"15px",marginBottom:"15px"}}>All Customer's</h3>
+         {/* search section */}
+         <div style={{width:"100%"}}>
+        <div style={{width:"360px",margin:"auto",marginTop:"10px",marginBottom:"10px"}}>
+          <Form className="d-flex" >
+            <Form.Control type="text" placeholder="Search" className="me-2" aria-label="Search" />
+            <Button variant="outline-success" style={{marginRight:"20px"}}>Search</Button>
+          </Form>
+        </div>
+        </div>
         <Table striped bordered hover   style={{fontSize:"14px"}}>
       <thead>
         <tr>
@@ -58,7 +71,7 @@ const DisplayCustomer=()=>{
         {ans}
         </tbody>
         </Table>
-        </div>
+       </div>
         </>
     )
 }

@@ -53,10 +53,10 @@ const UserDashboard = () => {
                     <FaTimes className="close-menu" onClick={() => setMenuOpen(false)} />
                 </div>
                 <ul className="sidebar-menu">
-                    <li><Link to="/dashboard" className="active"><FaHome /> Dashboard</Link></li>
-                    <li><Link to="userorders"><MdOutlineProductionQuantityLimits />Your Orders</Link></li>
-                    <li><Link to="updateproducts"><FaEdit /> Update Products</Link></li>
-                    <li><Link to="updatecustomer"><FaEdit /> Update Customers</Link></li>
+                    <li><Link to="/dashboard" className="active"><FaHome />Dashboard</Link></li>
+                    <li><Link to="userorders"><MdOutlineProductionQuantityLimits />Your Order's</Link></li>
+                    {/* <li><Link to="updateproducts"><FaEdit /> Update Products</Link></li>
+                    <li><Link to="updatecustomer"><FaEdit /> Update Customers</Link></li> */}
                 <Button variant="danger" className="logout" style={{marginLeft:"55px"}} onClick={UserlogOut}><FaSignOutAlt />Logout </Button>     
                 </ul>
             </div>
@@ -65,7 +65,7 @@ const UserDashboard = () => {
             <div className={`main-content ${menuOpen ? "full" : ""}`}>
                 <header>
                     <FaBars className="menu-toggle" onClick={() => setMenuOpen(true)} />
-                    <h3 className="user-dash" >DASHBOARD</h3>
+                    <h3 className="user-dash" >Your Dashboard</h3>
                     <div className="user-info">
                      {/* <Link to="/admindashboard/adminprofile"><img src={user} alt="User Icon" className="user-icon" /></Link>    */}
                     </div>
