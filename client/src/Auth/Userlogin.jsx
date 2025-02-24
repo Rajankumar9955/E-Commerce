@@ -26,7 +26,7 @@ const Userlogin=()=>{
              localStorage.setItem("token", response.data.token);
              navigate("/home");
            } catch (error) {
-            console.log(error)
+            toast.error(error.response.data.msg)
         }
     }
     else if(userRole=="admin"){

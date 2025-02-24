@@ -61,10 +61,7 @@ const showimg4 = (img4) => {
   // setShowImage(1);
 };
 
-const ContainerDisplay=(tata)=>{
-  let con=document.getElementById("oller")
-  con.src=tata;
-}
+
      
     return(
         <>
@@ -107,9 +104,7 @@ const ContainerDisplay=(tata)=>{
                   cancel={false}
                 />
               </div> */}
-          <div id="olle" style={{width:"100px"}}>
-                    <img src={`${BASE_URL}/${mydata.defaultImage}`} alt=""  id="oller" width="80"/>
-          </div>
+          
           <div id="btns">
             <Button
               size="sm"

@@ -115,10 +115,10 @@ const MenuBar=()=>{
 
 
              <div style={{height:"50px"}}>
-             <p style={{marginBottom:"8px",marginTop:"5px",color:"green",fontSize:"18px",marginLeft:"5px"}}>Welcome</p>
-             <NavDropdown title="" id="navbarScrollingDropdown">
-              <NavDropdown.Item ><button id="logout">Log-out</button></NavDropdown.Item>
-           </NavDropdown>
+             <p style={{marginBottom:"8px",marginTop:"5px",color:"green",fontSize:"18px",marginLeft:"5px"}}>Welcome <br />
+             <span style={{color:"black"}}>{localStorage.getItem("username")}</span>
+             </p>
+
             </div>
         </Navbar.Collapse>
       </Container>
