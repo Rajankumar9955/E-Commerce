@@ -72,9 +72,15 @@ const UserOrders=async(req,res)=>{
         res.status(400).send({msg:"Something Went Wrong!"});
     }
 }
-const SingleProductOrder=async(req,res)=>{
-     console.log(req.body);
-     res.send("pkkpk");
+const UserDetails=async(req,res)=>{
+     const {userid}=req.body;
+     try {
+        const userdetails=await UserModel.findById(userid);
+        // console.log(userdetails);
+        res.status(200).send(userdetails);
+     } catch (error) {
+        console.log(error);
+     }
 }
 module.exports={
     UserSignUp,
@@ -82,7 +88,7 @@ module.exports={
     UserProfile,
     GetUserDetail,
     UserOrders,
-    SingleProductOrder
+    UserDetails
 
     
 }
