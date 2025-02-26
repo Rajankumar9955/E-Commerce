@@ -12,6 +12,7 @@ route.post('/userlogin', UserController.UserLogin)
 route.post('/userprofile', UserController.UserProfile)
 route.post('/getuserdetail', UserController.GetUserDetail)
 route.post('/userorders', UserController.UserOrders)
+route.post('/singleproductorder', UserController.SingleProductOrder)
 
 
 module.exports=route

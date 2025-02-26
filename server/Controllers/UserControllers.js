@@ -72,10 +72,17 @@ const UserOrders=async(req,res)=>{
         res.status(400).send({msg:"Something Went Wrong!"});
     }
 }
+const SingleProductOrder=async(req,res)=>{
+     console.log(req.body);
+     res.send("pkkpk");
+}
 module.exports={
     UserSignUp,
     UserLogin,
     UserProfile,
     GetUserDetail,
-    UserOrders
+    UserOrders,
+    SingleProductOrder
+
+    
 }
