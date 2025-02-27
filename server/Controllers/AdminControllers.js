@@ -113,7 +113,13 @@ const OrderDeleteByAdmin=async(req,res)=>{
   }
 }
 const CustomerSearch=async(req,res)=>{
-  
+     const {name}=req.body;
+     try {
+      const srchdata=await UserModel.find({"name":{$regex:name,$options:'i'}})
+      res.status(200).send(srchdata);
+     } catch (error) {
+       console.log(error)
+     }
 }
 module.exports={
     ProductInsert,

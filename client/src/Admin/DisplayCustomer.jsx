@@ -38,6 +38,24 @@ const DisplayCustomer=()=>{
       }
     }
 
+    
+     let s=0;
+    const search=searchData.map((key)=>{
+      s++;
+       return(
+        <>
+           <tr>
+            <th>{s}</th>
+            <th>{key.name}</th>
+            <th>{key.address}</th>
+            <th>{key.city}</th>
+            <th>{key.contact}</th>
+            <th>{key.email}</th>
+           </tr>
+        </>
+       )
+    })
+
     let sno=0;
     const ans=mydata.map((key)=>{
         sno++;
@@ -55,6 +73,7 @@ const DisplayCustomer=()=>{
         )
     })
 
+    
   
     return(
         <>
@@ -82,7 +101,18 @@ const DisplayCustomer=()=>{
         </tr>
       </thead>
       <tbody>
-        {ans}
+      {search}
+      <hr />
+       {ans}
+        
+        
+      
+          
+
+             
+        
+        
+        
         </tbody>
         </Table>
        </div>
