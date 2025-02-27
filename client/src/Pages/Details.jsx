@@ -155,7 +155,7 @@ const showimg4 = (img4) => {
             >
               <i class="fas fa-heart" style={{height:"100px"}}></i><FaRegHeart style={{width:"60px"}}/>
             </Button >
-            <Button size="large" variant="warning" onClick={()=>{navigate(`/checkout`)}}>
+            <Button size="large" variant="warning" onClick={()=>{navigate(`/singleproductorder/${mydata._id}`)}}>
               Shop Now
             </Button>
           </div>
