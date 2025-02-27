@@ -112,6 +112,9 @@ const OrderDeleteByAdmin=async(req,res)=>{
     console.log(error)
   }
 }
+const CustomerSearch=async(req,res)=>{
+  
+}
 module.exports={
     ProductInsert,
     ProductsUpdate,
@@ -122,5 +125,6 @@ module.exports={
     DisplayCustomer,
     CustomerDelete,
     AdminLogin,
-    OrderDeleteByAdmin
+    OrderDeleteByAdmin,
+    CustomerSearch
 }

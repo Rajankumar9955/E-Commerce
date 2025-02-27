@@ -8,6 +8,9 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 const DisplayCustomer=()=>{
+         const [name,setName]=useState("");
+         const [searchData,setSearchData]=useState([])
+
     const [mydata,setMydata]=useState([]);
 
 
@@ -24,6 +27,16 @@ const DisplayCustomer=()=>{
     useEffect(()=>{
         loadData();
     },[])
+
+    const handleSearch=async()=>{
+      try {
+          let api=`${BASE_URL}/admin/customerSearch`;
+          const response=await axios.post(api,{name:name})
+          setSearchData(response.data);
+      } catch (error) {
+        console.log(error.response.data.msg)
+      }
+    }
 
     let sno=0;
     const ans=mydata.map((key)=>{
@@ -42,6 +55,7 @@ const DisplayCustomer=()=>{
         )
     })
 
+  
     return(
         <>
         
@@ -51,8 +65,8 @@ const DisplayCustomer=()=>{
          <div style={{width:"100%"}}>
         <div style={{width:"360px",margin:"auto",marginTop:"10px",marginBottom:"10px"}}>
           <Form className="d-flex" >
-            <Form.Control type="text" placeholder="Search" className="me-2" aria-label="Search" />
-            <Button variant="outline-success" style={{marginRight:"20px"}}>Search</Button>
+            <Form.Control type="text" placeholder="Search" className="me-2" aria-label="Search" value={name} onChange={(e)=>{setName(e.target.value)}}/>
+            <Button variant="outline-success" style={{marginRight:"20px"}} onClick={handleSearch}>Search</Button>
           </Form>
         </div>
         </div>
