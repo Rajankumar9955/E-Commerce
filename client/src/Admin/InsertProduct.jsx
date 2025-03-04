@@ -18,12 +18,20 @@ const InsertProduct=()=>{
 
      
     const categories={
-        Furniture: ["Living Room Furniture", "Bedroom Furniture", "Dining Room Furniture", "Office Furniture", "Kids Furniture"],
-        Handbag: ["Tote Bags", "Shoulder Bags", "Crossbody Bags","Backpacks", "Belt Bags"],
-        Books: ["Fiction", "Non-Fiction", "Children's Books", "Academic & Educational", "Comics & Graphic Novels", "Religion & Spirituality","Arts & Entertainment", "Cookbooks & Food", "Poetry & Drama"],
-        Tech:["Computers & Accessories", "Mobile Phones", "Audio & Sound Devices", "Gaming & Accessories", "Smart Home & IoT Devices", "Wearable Technology", "Cameras & Photography Equipment", "Office & Productivity", "Electric Vehicles & Accessories"],
-        Sneakers: ["Athletic Sneakers", "Casual & Lifestyle Sneakers", "Fashion & Designer Sneakers", "Streetwear & Hype Sneakers", "Outdoor & Hiking Sneakers"],
-        Travels: ["Luggage & Bags", "Travel Accessories", "Electronics & Gadgets", "Toiletries & Personal Care", "Safety & Security", "Travel Clothing & Footwear"],
+        // Furniture: ["Living Room Furniture", "Bedroom Furniture", "Dining Room Furniture", "Office Furniture", "Kids Furniture"],
+        // Handbag: ["Tote Bags", "Shoulder Bags", "Crossbody Bags","Backpacks", "Belt Bags"],
+        // Books: ["Fiction", "Non-Fiction", "Children's Books", "Academic & Educational", "Comics & Graphic Novels", "Religion & Spirituality","Arts & Entertainment", "Cookbooks & Food", "Poetry & Drama"],
+        // Tech:["Computers & Accessories", "Mobile Phones", "Audio & Sound Devices", "Gaming & Accessories", "Smart Home & IoT Devices", "Wearable Technology", "Cameras & Photography Equipment", "Office & Productivity", "Electric Vehicles & Accessories"],
+        // Sneakers: ["Athletic Sneakers", "Casual & Lifestyle Sneakers", "Fashion & Designer Sneakers", "Streetwear & Hype Sneakers", "Outdoor & Hiking Sneakers"],
+        // Travels: ["Luggage & Bags", "Travel Accessories", "Electronics & Gadgets", "Toiletries & Personal Care", "Safety & Security", "Travel Clothing & Footwear"],
+
+        Mobiles: ["Samsung", "Vivo", "Oppo","Oneplus", "Iphone","Nokia","Realme","Redmi","Micromax","Nothing","Google Pixel"],
+        Laptops: ["Dell", "Hp", "Lenovo", "Asus", "Acer","Zebronics","HCL"],
+        Mouse: ["Zebronics","Dell","Intex","Lenovo","Samsung","Hp","Acer"],
+        Watch: ["Hmt","Sonata","Limestone","Chopard","Fossil"],
+        Keyboard:["Zebronics","Dell","Intex","Lenovo","Samsung","Hp","Acer"],
+        SmartWatch: ["Boat","Noise","Samsung","Realme","Apple","Fastrack"],
+        TV: ["Samsung","Lg","Realme","Xiomi","Micromax","Sony","Apple"],
     }
 
     const handleCategoryChange=(e)=>{

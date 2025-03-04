@@ -9,7 +9,9 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useNavigate} from "react-router-dom";
 const SingleProductOrder=()=>{
+  const navigate=useNavigate()
   const userid=localStorage.getItem("userid")
   const [userData,setUserData]=useState({});
   
@@ -42,6 +44,13 @@ const SingleProductOrder=()=>{
 
      useEffect(()=>{
        loadData();
+     },[])
+
+     useEffect(()=>{
+       if(localStorage.getItem("username")==null){
+           navigate("/userlogin");
+           alert("Please Login First");
+       }
      },[])
     
      let totalAmount=data.productprice;
