@@ -20,6 +20,7 @@ import AdminProfile from "./Admin/AdminProfile"
 import SingleProductOrder from "./Pages/SingleProductOrder"
 import UserDashboard from "./Users/UserDashboard"
 import UserOrders from "./Users/UserOrders"
+import AllProduct from "./Pages/AllProducts"
 const App=()=>{
   return(
     <>
@@ -28,6 +29,7 @@ const App=()=>{
                         <Route path="/" element={<Layout/>}>
                         <Route index element={<Home/>}/>
                         <Route path="home" element={<Home/>}/> 
+                        <Route path="allproduct" element={<AllProduct/>}/>
                         <Route path="cart" element={<Cart/>}/> 
                         <Route path="wishlist" element={<Wishlist/>}/> 
                         <Route path="details/:id" element={<Details/>}/> 

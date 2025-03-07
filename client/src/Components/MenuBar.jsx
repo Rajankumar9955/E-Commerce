@@ -48,7 +48,7 @@ const MenuBar=()=>{
             navbarScroll>
 
             <Nav.Link as={Link} to="home">Home</Nav.Link>
-            <Nav.Link as={Link}to="products">Products</Nav.Link>
+            <Nav.Link as={Link}to="allproduct">All Products</Nav.Link>
             <Nav.Link as={Link}to="shop">Shop</Nav.Link>
             <Nav.Link as={Link}to="sale">Sale</Nav.Link>
             <NavDropdown title="Brands" id="navbarScrollingDropdown">
