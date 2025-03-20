@@ -26,10 +26,19 @@ const SingleProductOrder=async(req,res)=>{
         console.log(error);
     }
 }
+const ShowAllProducts=async(req,res)=>{
+    try {
+        const show=await ProductModel.find()
+        res.status(200).send(datashow);
+    } catch (error) {
+        console.log(error)
+    }
+     
 
+}
 module.exports={
     ProductShowOnHomePage,
     ProductDetails,
     SingleProductOrder,
-    
+    ShowAllProducts
 }
