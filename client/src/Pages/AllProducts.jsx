@@ -41,8 +41,9 @@ useEffect(()=>{
 const detail=(id)=>{
   navigate(`/details/${id}`);
 }
-const SingleOrder=()=>{
 
+const SingleOrder=(id)=>{
+  navigate(`/singleproductorder/${id}`)
 }
 const ans=mydata.map((key)=>{
   return(
