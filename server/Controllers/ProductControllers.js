@@ -29,12 +29,10 @@ const SingleProductOrder=async(req,res)=>{
 const ShowAllProducts=async(req,res)=>{
     try {
         const show=await ProductModel.find()
-        res.status(200).send(datashow);
+        res.status(200).send(show);
     } catch (error) {
         console.log(error)
     }
-     
-
 }
 module.exports={
     ProductShowOnHomePage,

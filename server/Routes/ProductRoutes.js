@@ -10,7 +10,7 @@ const ProductControllers=require("../Controllers/ProductControllers")
 route.get("/homeproductdisplay", ProductControllers.ProductShowOnHomePage);
 route.post("/productdetail", ProductControllers.ProductDetails);
 route.post("/singleproductorder", ProductControllers.SingleProductOrder);
-route.get("/AllProducts", ProductControllers.ShowAllProducts);
+route.get("/showallproducts", ProductControllers.ShowAllProducts);
 
 
 module.exports=route;
