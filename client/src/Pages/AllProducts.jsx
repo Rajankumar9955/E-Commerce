@@ -18,9 +18,11 @@ import { addtowishlist } from "../Redux/wishlistSlice";
 import { useNavigate } from "react-router-dom";
 
 const AllProduct=()=>{
+  const navigate=useNavigate();
+  const {id}=useParams()
   const [mydata, setMydata]= useState([]);
   const dispatch=useDispatch();
-  
+
  const loadData=async()=>{
   const api=`${BASE_URL}/product/showallproducts`;
   try {
@@ -36,6 +38,12 @@ useEffect(()=>{
   loadData();
 }, [])
 
+const detail=(id)=>{
+  navigate(`/details/${id}`);
+}
+const SingleOrder=()=>{
+
+}
 const ans=mydata.map((key)=>{
   return(
       <>
