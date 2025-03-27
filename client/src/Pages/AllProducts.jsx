@@ -48,32 +48,101 @@ const SingleOrder=(id)=>{
 const ans=mydata.map((key)=>{
   return(
       <>
-    <div className="product-card">
-          <div className="image-container">
-      <img src={`${BASE_URL}/${key.defaultImage}`} alt="photo" className="product-image" onClick={()=>{detail(key._id)}} />
-     <FaRegHeart className="wishlist-icon" 
-             onClick={()=>{dispatch(addtowishlist({id:key._id, productname:key.productname, productbrand:key.productbrand, productprice:key.productprice, description:key.description,category:key.category, subcategory:key.subcategory, images:key.images, defaultImage:key.defaultImage, ratings:key.ratings, status:key.status, qnty:1}))}}
-     />
+    <div id="item-details">
+         <div id="images">
+            <div id="image-div">
+          <img src={`${BASE_URL}/${key.defaultImage}`} alt="" height="300px" id="orignalimage" />
+            </div>
+            
+          <div id="img-option">
+
+                     <img src={`${BASE_URL}/${Image[0]}`} alt="image" height="35"/>
+                     <img src={`${BASE_URL}/${Image[1]}`} alt="image" height="35"/>
+                     <img src={`${BASE_URL}/${Image[2]}`} alt="image" height="35"/>
+                     <img src={`${BASE_URL}/${Image[3]}`} alt="image" height="35"/>
           </div>
-          <div className="product-info">
-              <div className="product-title-price">
-                  <h3 className="product-title">{key.productname}</h3>
-                  <span className="product-price"> 
-                      ₹ {key.productprice}</span>
-              </div>
-              <p className="product-description">{key.description}</p>
-              {/* <div className="product-rating">
-                  {[...Array(key.ratings)].map((_, index) => (
-                      <FaStar key={index} className="star-icon" />
-                  ))}
+        </div>
+
+
+        <div id="contents">
+          <b id="pro-name">{key.productname}</b>
+          <b id="description">{key.description}</b>
+          <b>Brand : {key.productbrand}</b>
+          <b>Category : {key.category}</b> 
+          <b>Subcategory : {key.subcategory}</b>
+          <b id="price">
+            Price : ₹{key.productprice} 
+          </b>
+          <b>
+            {/* Ratings : {mydata.rating} {desc[mydata.rating]} */}
+            </b>
+            <h2></h2>
+            {/* <div className=" flex justify-content-center">
+                <Rating
+                  value={mydata.ratings}
+                  onChange={(e) => setValue(e.value)}
+                  onMouseOver={() => {
+                    handleRate(mydata._id);
+                  }}
+                  cancel={false}
+                />
               </div> */}
-              <div className="add-to-cart">
-              <Button variant="warning"  className="add-to-cart1" onClick={()=>{SingleOrder(key._id)}}>Shop Now</Button>
-              <Button variant="success" className="add-to-cart11"
-onClick={()=>{dispatch(addtoCart({id:key._id, productname:key.productname, productbrand:key.productbrand, productprice:key.productprice, description:key.description,category:key.category, subcategory:key.subcategory, images:key.images, defaultImage:key.defaultImage, ratings:key.rating, status:key.status, qnty:1}))}}
-              >Add to Cart</Button>
-      </div>
+          
+          <div id="btns">
+            <Button
+              size="sm"
+              variant="success"
+              onClick={() => {
+                dispatch(
+                    addtoCart({
+                    id: key._id,
+                    name: key.productname,
+                    brand: key.productbrand,
+                    price: key.productprice,
+                    description: key.description,
+                    category: key.category,
+                    subcategory: key.subcategory,
+                    images: key.images,
+                    defaultImage: key.defaultImage,
+                    ratings: key.rating,
+                    status: key.status,
+                    qnty: 1,
+                  })
+                );
+              }}
+            >
+              {" "}
+              <i class="fas fa-plus" /> Add to Cart
+            </Button>
+            <Button
+              size="sm"
+              variant="danger"
+              onClick={() => {
+                dispatch(
+                    addtowishlist({
+                    id: key._id,
+                    name: key.productname,
+                    brand: key.productbrand,
+                    price: key.productprice,
+                    description: key.description,
+                    category: key.category,
+                    subcategory: key.subcategory,
+                    images: key.images,
+                    defaultImage: key.defaultImage,
+                    ratings: key.rating,
+                    status: key.status,
+                    qnty: 1,
+                  })
+                );
+              }}
+            >
+              <i class="fas fa-heart" style={{height:"100px"}}></i><FaRegHeart style={{width:"60px"}}/>
+            </Button >
+            <Button size="large" variant="warning" onClick={()=>{navigate(`/singleproductorder/${key._id}`)}}>
+              Shop Now
+            </Button>
           </div>
+        </div>
       </div>
       </>
   )
@@ -86,3 +155,7 @@ onClick={()=>{dispatch(addtoCart({id:key._id, productname:key.productname, produ
   </>)
 }
 export default AllProduct;
+
+
+
+
