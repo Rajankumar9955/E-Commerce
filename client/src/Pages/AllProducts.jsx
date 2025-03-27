@@ -48,19 +48,19 @@ const SingleOrder=(id)=>{
 const ans=mydata.map((key)=>{
   return(
       <>
-    <div id="item-details">
+    <div id="item-details" style={{border:"2px solid black"}}>
          <div id="images">
             <div id="image-div">
           <img src={`${BASE_URL}/${key.defaultImage}`} alt="" height="300px" id="orignalimage" />
             </div>
             
-          <div id="img-option">
+          {/* <div id="img-option">
 
                      <img src={`${BASE_URL}/${Image[0]}`} alt="image" height="35"/>
                      <img src={`${BASE_URL}/${Image[1]}`} alt="image" height="35"/>
                      <img src={`${BASE_URL}/${Image[2]}`} alt="image" height="35"/>
                      <img src={`${BASE_URL}/${Image[3]}`} alt="image" height="35"/>
-          </div>
+          </div> */}
         </div>
 
 
@@ -151,7 +151,15 @@ const ans=mydata.map((key)=>{
   return(
   <>
    <h3 align="center">All Products</h3>
-      {ans}
+  <Row>
+    <Col md="3" >
+          <div style={{border:"2px solid black", height:"600px", marginTop:"34px", borderBottom:"2px solid white"}}>
+dafasdfa
+          </div>
+    </Col>
+    <Col md="9">{ans}</Col>
+  </Row>
+  
   </>)
 }
 export default AllProduct;
