@@ -48,10 +48,10 @@ const SingleOrder=(id)=>{
 const ans=mydata.map((key)=>{
   return(
       <>
-    <div id="item-details" style={{border:"2px solid black"}}>
+    <div id="item-details" style={{border:"2px solid black", borderRadius:"5px"}}>
          <div id="images">
             <div id="image-div">
-          <img src={`${BASE_URL}/${key.defaultImage}`} alt="" height="300px" id="orignalimage" />
+          <img src={`${BASE_URL}/${key.defaultImage}`} alt="" height="300px" id="orignalimage" onClick={()=>{detail(key._id)}}/>
             </div>
             
           {/* <div id="img-option">
@@ -138,7 +138,7 @@ const ans=mydata.map((key)=>{
             >
               <i class="fas fa-heart" style={{height:"100px"}}></i><FaRegHeart style={{width:"60px"}}/>
             </Button >
-            <Button size="large" variant="warning" onClick={()=>{navigate(`/singleproductorder/${key._id}`)}}>
+            <Button size="large" variant="warning" onClick={()=>{SingleOrder(key._id)}}>
               Shop Now
             </Button>
           </div>
@@ -153,8 +153,12 @@ const ans=mydata.map((key)=>{
    <h3 align="center">All Products</h3>
   <Row>
     <Col md="3" >
-          <div style={{border:"2px solid black", height:"600px", marginTop:"34px", borderBottom:"2px solid white"}}>
-dafasdfa
+          <div style={{border:"2px solid black", height:"600px", marginTop:"34px",borderRadius:"5px"}}>
+                        
+
+
+
+                        jkljnhkvgnvjkhkvjgnvhvcjhgc
           </div>
     </Col>
     <Col md="9">{ans}</Col>
