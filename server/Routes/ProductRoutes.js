@@ -11,7 +11,7 @@ route.get("/homeproductdisplay", ProductControllers.ProductShowOnHomePage);
 route.post("/productdetail", ProductControllers.ProductDetails);
 route.post("/singleproductorder", ProductControllers.SingleProductOrder);
 route.get("/showallproducts", ProductControllers.ShowAllProducts);
-route.post("/showRelatedProduct", ProductControllers.ShowRelatedProduct);
+route.post("/ShowRelatedProduct", ProductControllers.ShowRelatedProducts);
 
 
 module.exports=route;

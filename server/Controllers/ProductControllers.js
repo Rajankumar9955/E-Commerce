@@ -34,14 +34,21 @@ const ShowAllProducts=async(req,res)=>{
         console.log(error)
     }
 }
-const ShowRelatedProduct=async(req,res)=>{
-      console.log(req.body);
-      res.send("okk")
+const ShowRelatedProducts = async(req,res) =>{
+    console.log(req.body);
+    const{name} = req.body;
+    console.log(name);
+    try {
+        const Data = await ProductModel.find({category:name});
+        res.status(200).send(Data);
+    } catch (error) {
+        res.status(400).send(error)
+    }
 }
 module.exports={
     ProductShowOnHomePage,
     ProductDetails,
     SingleProductOrder,
     ShowAllProducts,
-    ShowRelatedProduct
+    ShowRelatedProducts
 }
