@@ -20,6 +20,7 @@ const Details=()=>{
     const dispatch=useDispatch();
     const [mydata,setmydata]=useState({});
     const [Image, setImages]=useState([]);
+    const [similarPro,setSimilarPro]=useState([]);
     const {id}=useParams();
     
     const loadData= async()=>{
@@ -36,6 +37,19 @@ useEffect(()=>{
     loadData();
 },[])
 
+    const loadData1=async()=>{
+      const name=mydata.category;
+      const api=`${BASE_URL}/product/showRelatedProduct`;
+      try {
+           const response=await axios.post(api,{name:name});
+           setSimilarPro(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    useEffect(()=>{
+      similarPro();
+    },[mydata.category]);
 
 // Image Hover in details section
 // const [showimage, setShowImage] = useState(0);
