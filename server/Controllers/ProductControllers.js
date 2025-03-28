@@ -34,9 +34,14 @@ const ShowAllProducts=async(req,res)=>{
         console.log(error)
     }
 }
+const ShowRelatedProduct=async(req,res)=>{
+      console.log(req.body);
+      res.send("okk")
+}
 module.exports={
     ProductShowOnHomePage,
     ProductDetails,
     SingleProductOrder,
-    ShowAllProducts
+    ShowAllProducts,
+    ShowRelatedProduct
 }
