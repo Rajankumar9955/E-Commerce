@@ -42,7 +42,7 @@ useEffect(()=>{
    const api=`${BASE_URL}/product/ShowRelatedProduct`;
    try {
          const response=await axios.post(api,{name:name});
-         alert(response.data);
+         setSimilarPro(response.data);
    } catch (error) {
     console.log(error)
    }
@@ -52,15 +52,117 @@ useEffect(()=>{
       ShowRelatedProduct()
  },[mydata.category])
 
-    // const detail=(id)=>{
-    //   navigate(`/details/${id}`);
-    // }
-    // const SingleOrder=(id)=>{
-    //   navigate(`/singleproductorder/${id}`)
-    // }
+    const detail=(id)=>{
+      navigate(`/details/${id}`);
+    }
+    const SingleOrder=(id)=>{
+      navigate(`/singleproductorder/${id}`)
+    }
 
     // similar products
     
+    const similarProducts=similarPro.map((key)=>{
+      return(
+        <>
+              <div id="item-details" style={{border:"2px solid black", borderRadius:"5px"}}>
+         <div id="images">
+            <div id="image-div">
+          <img src={`${BASE_URL}/${key.defaultImage}`} alt="" height="300px" id="orignalimage" onClick={()=>{detail(key._id)}}/>
+            </div>
+            
+          {/* <div id="img-option">
+
+                     <img src={`${BASE_URL}/${Image[0]}`} alt="image" height="35"/>
+                     <img src={`${BASE_URL}/${Image[1]}`} alt="image" height="35"/>
+                     <img src={`${BASE_URL}/${Image[2]}`} alt="image" height="35"/>
+                     <img src={`${BASE_URL}/${Image[3]}`} alt="image" height="35"/>
+          </div> */}
+        </div>
+
+
+        <div id="contents">
+          <b id="pro-name">{key.productname}</b>
+          <b id="description">{key.description}</b>
+          <b>Brand : {key.productbrand}</b>
+          <b>Category : {key.category}</b> 
+          <b>Subcategory : {key.subcategory}</b>
+          <b id="price">
+            Price : ₹{key.productprice} 
+          </b>
+          <b>
+            {/* Ratings : {mydata.rating} {desc[mydata.rating]} */}
+            </b>
+            <h2></h2>
+            {/* <div className=" flex justify-content-center">
+                <Rating
+                  value={mydata.ratings}
+                  onChange={(e) => setValue(e.value)}
+                  onMouseOver={() => {
+                    handleRate(mydata._id);
+                  }}
+                  cancel={false}
+                />
+              </div> */}
+          
+          <div id="btns">
+            <Button
+              size="sm"
+              variant="success"
+              onClick={() => {
+                dispatch(
+                    addtoCart({
+                    id: key._id,
+                    name: key.productname,
+                    brand: key.productbrand,
+                    price: key.productprice,
+                    description: key.description,
+                    category: key.category,
+                    subcategory: key.subcategory,
+                    images: key.images,
+                    defaultImage: key.defaultImage,
+                    ratings: key.rating,
+                    status: key.status,
+                    qnty: 1,
+                  })
+                );
+              }}
+            >
+              {" "}
+              <i class="fas fa-plus" /> Add to Cart
+            </Button>
+            <Button
+              size="sm"
+              variant="danger"
+              onClick={() => {
+                dispatch(
+                    addtowishlist({
+                    id: key._id,
+                    name: key.productname,
+                    brand: key.productbrand,
+                    price: key.productprice,
+                    description: key.description,
+                    category: key.category,
+                    subcategory: key.subcategory,
+                    images: key.images,
+                    defaultImage: key.defaultImage,
+                    ratings: key.rating,
+                    status: key.status,
+                    qnty: 1,
+                  })
+                );
+              }}
+            >
+              <i class="fas fa-heart" style={{height:"100px"}}></i><FaRegHeart style={{width:"60px"}}/>
+            </Button >
+            <Button size="large" variant="warning" onClick={()=>{SingleOrder(key._id)}}>
+              Shop Now
+            </Button>
+          </div>
+        </div>
+      </div>
+        </>
+      )
+    })
    
 
 // Image Hover in details section
@@ -188,7 +290,7 @@ const showimg4 = (img4) => {
       <br />
       <hr />
        <h3 align="center">Related Products !!</h3>
-                 
+                 {similarProducts}
       <hr />
         </>
     )
